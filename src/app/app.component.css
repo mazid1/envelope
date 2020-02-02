@@ -2,6 +2,7 @@
   height: 100%;
   background: #273747;
   color: azure;
+  padding: 10px;
 }
 
 .avatar {
@@ -17,4 +18,14 @@
 
 .r-sidebar {
   background: slategray;
+}
+
+.social-icon-container {
+  width: 100%;
+  text-align: center;
+}
+
+fa-icon {
+  font-size: 1.6rem;
+  padding: 5px;
 }
