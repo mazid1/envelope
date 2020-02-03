@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import {MatButtonModule} from '@angular/material/button';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -14,7 +16,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

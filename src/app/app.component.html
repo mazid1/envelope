@@ -9,7 +9,6 @@
       <li>About me</li>
       <li>Contact</li>
     </ul>
-
     <div class="social-icon-container">
       <fa-icon [icon]="faLinkedinIn"></fa-icon>
       <fa-icon [icon]="faGithub"></fa-icon>
@@ -19,7 +18,15 @@
     </div>
 
   </div>
-  <div fxFlex="60">Main Content area</div>
+  <div fxFlex="60" class="main-container">
+    Main Content area
+    <button mat-raised-button>Basic</button>
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+    <button mat-raised-button color="warn">Warn</button>
+    <button mat-raised-button disabled>Disabled</button>
+    <a mat-raised-button routerLink=".">Link</a>
+  </div>
   <div fxFlex="20" class="r-sidebar">Right sidebar</div>
 </div>
 
