@@ -1,18 +1,13 @@
 .editor-container {
   height: 100%;
-  flex: 1;
-  display: flex;
-  flex-direction: row;
 }
 
-/*#editor {*/
-/*  height: 100%;*/
-/*  flex: 1;*/
-/*  overflow-y: auto;*/
-/*  width: 100%;*/
-/*}*/
+.my-ql-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-/*.ql-container {*/
-/*  height: 300px !important;*/
-/*  overflow-y: auto !important;*/
-/*}*/
+.ql-container.ql-snow {
+  overflow-y: auto;
+}
