@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TextEditorService } from '../services/text-editor.service';
 
 @Component({
   selector: 'app-post-detail',
@@ -7,15 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostDetailComponent implements OnInit {
 
-  content = [
-    { insert: 'Hello ' },
-    { insert: 'World!', attributes: { bold: true } },
-    { insert: '\n' }
-  ]
+  content = [];
 
-  constructor() { }
+  constructor(private textEditorService: TextEditorService) {
+  }
 
   ngOnInit() {
+    this.textEditorService.content.subscribe(c => {
+      this.content = c;
+    });
   }
 
 }

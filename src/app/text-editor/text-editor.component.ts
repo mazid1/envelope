@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import Quill from 'quill';
 
 import ImageResize from 'quill-image-resize-module';
+import { TextEditorService } from '../services/text-editor.service';
 
 Quill.register('modules/imageResize', ImageResize);
 
@@ -14,8 +15,9 @@ Quill.register('modules/imageResize', ImageResize);
 export class TextEditorComponent implements OnInit {
 
   modules = {};
+  content = [];
 
-  constructor() {
+  constructor(private textEditorService: TextEditorService) {
     this.modules = {
       formula: true,
       imageResize: {},
@@ -26,4 +28,13 @@ export class TextEditorComponent implements OnInit {
   ngOnInit() {
   }
 
+  onContentChanged(event) {
+    if (event.hasOwnProperty('content') && event.content.hasOwnProperty('ops')) {
+      this.content = event.content.ops;
+    }
+  }
+
+  save() {
+    this.textEditorService.content = this.content;
+  }
 }

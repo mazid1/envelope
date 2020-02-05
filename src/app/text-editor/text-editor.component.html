@@ -3,6 +3,8 @@
     #editor
     class="my-ql-editor"
     [modules]="modules"
-    [styles]="{width: '100%', overflowY: 'auto'}">
+    [styles]="{width: '100%', overflowY: 'auto'}"
+    (onContentChanged)="onContentChanged($event)">
   </quill-editor>
+  <button (click)="save()">Save</button>
 </div>
