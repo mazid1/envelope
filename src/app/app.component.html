@@ -1,39 +1,39 @@
-<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between" fxFlexFill>
-  <div fxFlex="20" fxFlex.xs="60" class="nav">
-    <div class="avatar">
-      <img src="../assets/mzd2.jpg" alt="Avatar">
-    </div>
-    <ul>
-      <li>
-        <button mat-raised-button color="primary">Home</button>
-      </li>
-      <li>
-        <button mat-raised-button color="accent">Blog</button>
-      </li>
-      <li>
-        <button mat-raised-button color="warn">About me</button>
-      </li>
-      <li>
-        <button mat-raised-button color="warn" disabled>Contact</button>
-      </li>
-    </ul>
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <button mat-icon-button (click)="snav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches">
 
-    <div class="social-icon-container">
-      <fa-icon [icon]="faLinkedinIn"></fa-icon>
-      <fa-icon [icon]="faGithub"></fa-icon>
-      <fa-icon [icon]="faYoutube"></fa-icon>
-      <fa-icon [icon]="faTwitter"></fa-icon>
-      <fa-icon [icon]="faFacebook"></fa-icon>
-    </div>
+      <mat-nav-list>
+        <div class="avatar">
+          <img src="../assets/mzd2.jpg" alt="Avatar">
+        </div>
+        <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
+        <div class="social-icon-container">
+          <fa-icon [icon]="faLinkedinIn"></fa-icon>
+          <fa-icon [icon]="faGithub"></fa-icon>
+          <fa-icon [icon]="faYoutube"></fa-icon>
+          <fa-icon [icon]="faTwitter"></fa-icon>
+          <fa-icon [icon]="faFacebook"></fa-icon>
+        </div>
+      </mat-nav-list>
 
-  </div>
+    </mat-sidenav>
 
-  <div fxFlex="60" class="main-container">
-    <app-text-editor class="width-100pc"></app-text-editor>
-    <app-post-detail class="width-100pc"></app-post-detail>
-  </div>
+    <mat-sidenav-content class="main-container">
+      <app-text-editor class="width-100pc"></app-text-editor>
+      <app-post-detail class="width-100pc"></app-post-detail>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 
-  <div fxFlex="20" class="r-sidebar">Right sidebar</div>
+  <!--  <div fxFlex="60" class="main-container">-->
+  <!--    -->
+  <!--  </div>-->
+
+  <!--  <div fxFlex="20" class="r-sidebar">Right sidebar</div>-->
 </div>
 
 <router-outlet></router-outlet>

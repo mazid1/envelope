@@ -10,6 +10,10 @@ import { TextEditorComponent } from './text-editor/text-editor.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,11 +23,15 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FlexLayoutModule,
     FontAwesomeModule,
     QuillModule.forRoot(),
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
