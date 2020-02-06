@@ -9,8 +9,14 @@ import { TextEditorService } from '../services/text-editor.service';
 export class PostDetailComponent implements OnInit {
 
   content = [];
+  modules = {};
 
   constructor(private textEditorService: TextEditorService) {
+    this.modules = {
+      formula: true,
+      imageResize: {},
+      syntax: true
+    };
   }
 
   ngOnInit() {
