@@ -1,22 +1,38 @@
 <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between" fxFlexFill>
   <div fxFlex="20" fxFlex.xs="60" class="nav">
-    <div class="avatar">
-      <img src="../assets/mzd2.jpg" alt="Avatar">
-    </div>
-    <nav fxLayout="column">
-      <a routerLink="/" routerLinkActive="active">Home</a>
-      <a routerLink="/blog" routerLinkActive="active">Blog</a>
-      <a routerLink="/about" routerLinkActive="active">About me</a>
-      <a routerLink="/contact" routerLinkActive="active">Contact</a>
-    </nav>
 
-    <div class="social-icon-container">
-      <fa-icon [icon]="faLinkedinIn"></fa-icon>
-      <fa-icon [icon]="faGithub"></fa-icon>
-      <fa-icon [icon]="faYoutube"></fa-icon>
-      <fa-icon [icon]="faTwitter"></fa-icon>
-      <fa-icon [icon]="faFacebook"></fa-icon>
-    </div>
+    <mat-sidenav class="sidenav" opened>
+
+      <div class="avatar" routerLink="/" routerLinkActive="active">
+        <img src="../assets/mzd2.jpg" alt="Avatar">
+      </div>
+
+      <mat-nav-list class="nav-item-container" fxLayout="column">
+        <mat-list-item routerLink="/" routerLinkActive="active">Home</mat-list-item>
+        <mat-list-item routerLink="/blog" routerLinkActive="active">Blog</mat-list-item>
+        <mat-list-item routerLink="/about" routerLinkActive="active">About me</mat-list-item>
+        <mat-list-item routerLink="/contact" routerLinkActive="active">Contact</mat-list-item>
+      </mat-nav-list>
+
+      <mat-nav-list class="social-icon-container" fxLayout="row" fxLayoutAlign="center">
+        <a mat-list-item href="https://linkedin.com" target="_blank">
+          <fa-icon [icon]="faLinkedinIn"></fa-icon>
+        </a>
+        <a mat-list-item href="https://github.com" target="_blank">
+          <fa-icon [icon]="faGithub"></fa-icon>
+        </a>
+        <a mat-list-item href="https://youtube.com" target="_blank">
+          <fa-icon [icon]="faYoutube"></fa-icon>
+        </a>
+        <a mat-list-item href="https://twitter.com" target="_blank">
+          <fa-icon [icon]="faTwitter"></fa-icon>
+        </a>
+        <a mat-list-item href="https://facebook.com" target="_blank">
+          <fa-icon [icon]="faFacebook"></fa-icon>
+        </a>
+      </mat-nav-list>
+
+    </mat-sidenav>
 
   </div>
 

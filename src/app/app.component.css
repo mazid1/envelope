@@ -5,9 +5,14 @@
   padding: 10px;
 }
 
+.sidenav {
+  outline: 0;
+}
+
 .avatar {
   align-content: center;
   text-align: center;
+  outline: 0;
 }
 
 .avatar > img {
@@ -23,6 +28,7 @@
 .social-icon-container {
   width: 100%;
   text-align: center;
+  overflow: auto;
 }
 
 fa-icon {
