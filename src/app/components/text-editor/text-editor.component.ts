@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import Quill from 'quill';
 
 import ImageResize from 'quill-image-resize-module';
-import { TextEditorService } from '../services/text-editor.service';
+import { TextEditorService } from '../../services/text-editor.service';
 
 Quill.register('modules/imageResize', ImageResize);
 

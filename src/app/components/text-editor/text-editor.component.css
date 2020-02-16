@@ -1,0 +1,13 @@
+.editor-container {
+  height: 100%;
+}
+
+.my-ql-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ql-container.ql-snow {
+  overflow-y: auto;
+}

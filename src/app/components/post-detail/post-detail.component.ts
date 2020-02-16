@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TextEditorService } from '../services/text-editor.service';
+import { TextEditorService } from '../../services/text-editor.service';
 
 @Component({
   selector: 'app-post-detail',

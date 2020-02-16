@@ -6,16 +6,28 @@ import { QuillModule } from 'ngx-quill';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TextEditorComponent } from './text-editor/text-editor.component';
-import { PostDetailComponent } from './post-detail/post-detail.component';
+import { TextEditorComponent } from './components/text-editor/text-editor.component';
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
 
 import { MatButtonModule } from '@angular/material/button';
+import { HomeComponent } from './components/home/home.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { AboutMeComponent } from './components/about-me/about-me.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { PostCardComponent } from './components/post-card/post-card.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TextEditorComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    HomeComponent,
+    BlogComponent,
+    AboutMeComponent,
+    ContactComponent,
+    PostCardComponent,
+    CategoryListComponent
   ],
   imports: [
     BrowserModule,
