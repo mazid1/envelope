@@ -3,12 +3,12 @@
     <div class="avatar">
       <img src="../assets/mzd2.jpg" alt="Avatar">
     </div>
-    <ul>
-      <li>Home</li>
-      <li>Blog</li>
-      <li>About me</li>
-      <li>Contact</li>
-    </ul>
+    <nav fxLayout="column">
+      <a routerLink="/" routerLinkActive="active">Home</a>
+      <a routerLink="/blog" routerLinkActive="active">Blog</a>
+      <a routerLink="/about" routerLinkActive="active">About me</a>
+      <a routerLink="/contact" routerLinkActive="active">Contact</a>
+    </nav>
 
     <div class="social-icon-container">
       <fa-icon [icon]="faLinkedinIn"></fa-icon>
@@ -21,11 +21,8 @@
   </div>
 
   <div fxFlex="60" class="main-container">
-    <app-text-editor class="width-100pc"></app-text-editor>
-    <app-post-detail class="width-100pc"></app-post-detail>
+    <router-outlet></router-outlet>
   </div>
 
   <div fxFlex="20" class="r-sidebar">Right sidebar</div>
 </div>
-
-<router-outlet></router-outlet>
