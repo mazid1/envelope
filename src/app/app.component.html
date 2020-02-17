@@ -3,12 +3,12 @@
 
     <mat-sidenav class="sidenav" opened>
 
-      <div class="avatar" routerLink="/" routerLinkActive="active">
-        <img src="../assets/mzd2.jpg" alt="Avatar">
+      <div class="avatar" routerLink="/" tabindex="-1">
+        <img src="../assets/mzd2.jpg" alt="Avatar">     
       </div>
 
       <mat-nav-list class="nav-item-container" fxLayout="column">
-        <mat-list-item routerLink="/" routerLinkActive="active">Home</mat-list-item>
+        <mat-list-item routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</mat-list-item>
         <mat-list-item routerLink="/blog" routerLinkActive="active">Blog</mat-list-item>
         <mat-list-item routerLink="/about" routerLinkActive="active">About me</mat-list-item>
         <mat-list-item routerLink="/contact" routerLinkActive="active">Contact</mat-list-item>
