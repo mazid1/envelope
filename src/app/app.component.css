@@ -9,6 +9,10 @@
   outline: 0;
 }
 
+.mat-nav-list .mat-list-item.active {
+  background: darkslategray;
+}
+
 .avatar {
   align-content: center;
   text-align: center;
