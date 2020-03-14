@@ -19,6 +19,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ArticleCardComponent } from './components/article-card/article-card.component';
 import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
 import { TextEditorComponent } from './components/text-editor/text-editor.component';
+import { ArticleFormComponent } from './components/article-edit/article-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TextEditorComponent } from './components/text-editor/text-editor.compon
     AboutMeComponent,
     ContactComponent,
     ArticleCardComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    ArticleFormComponent
   ],
   imports: [
     BrowserModule,
