@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { TextEditorService } from '../../services/text-editor.service';
 
 @Component({
-  selector: 'app-post-detail',
-  templateUrl: './post-detail.component.html',
-  styleUrls: ['./post-detail.component.css']
+  selector: 'app-article-detail',
+  templateUrl: './article-detail.component.html',
+  styleUrls: ['./article-detail.component.css']
 })
-export class PostDetailComponent implements OnInit {
-
+export class ArticleDetailComponent implements OnInit {
   content = [];
   modules = {};
 
@@ -24,5 +23,4 @@ export class PostDetailComponent implements OnInit {
       this.content = c;
     });
   }
-
 }

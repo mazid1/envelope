@@ -16,20 +16,20 @@ import { BlogComponent } from './components/blog/blog.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
-import { PostCardComponent } from './components/post-card/post-card.component';
-import { PostDetailComponent } from './components/post-detail/post-detail.component';
+import { ArticleCardComponent } from './components/article-card/article-card.component';
+import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
 import { TextEditorComponent } from './components/text-editor/text-editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TextEditorComponent,
-    PostDetailComponent,
+    ArticleDetailComponent,
     HomeComponent,
     BlogComponent,
     AboutMeComponent,
     ContactComponent,
-    PostCardComponent,
+    ArticleCardComponent,
     CategoryListComponent
   ],
   imports: [
