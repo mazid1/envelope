@@ -11,9 +11,9 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'about', component: AboutMeComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'post/:id', component: ArticleDetailComponent },
-  { path: 'edit-post/:id', component: TextEditorComponent },
-  { path: 'edit-post', component: TextEditorComponent },
+  { path: 'article/:id', component: ArticleDetailComponent },
+  { path: 'edit-article/:id', component: TextEditorComponent },
+  { path: 'edit-article', component: TextEditorComponent },
   { path: '', component: HomeComponent }
 ];
 
