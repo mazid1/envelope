@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Article } from '../../models/article.model';
-import { ApiService } from '../../services/api.service';
+import { ArticleService } from '../../services/article.service';
 
 @Component({
   selector: 'app-article-detail',
@@ -15,7 +15,10 @@ export class ArticleDetailComponent implements OnInit {
   content = [];
   modules = {};
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) {
+  constructor(
+    private route: ActivatedRoute,
+    private articleService: ArticleService
+  ) {
     this.modules = {
       formula: true,
       imageResize: {},
@@ -26,7 +29,9 @@ export class ArticleDetailComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap
       .pipe(
-        switchMap(params => this.apiService.getArticleById(params.get('id')))
+        switchMap(params =>
+          this.articleService.getArticleById(params.get('id'))
+        )
       )
       .subscribe((res: Article) => (this.content = res.content));
   }

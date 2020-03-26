@@ -9,7 +9,7 @@ import { Article } from '../models/article.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class ArticleService {
   apiUrl: string = environment.apiUrl;
 
   constructor(private httpClient: HttpClient) {}
