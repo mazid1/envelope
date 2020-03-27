@@ -1,7 +1,17 @@
 <form [formGroup]="articleForm">
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input
+      matInput
+      placeholder="Awesome Title Goes Here"
+      [formControlName]="{{ formMb.TITLE }}"
+      required
+    />
+    <mat-error *ngIf="email.invalid">Title is required</mat-error>
+  </mat-form-field> -->
   <label>
     Title:
-    <input type="text" formControlName="title" />
+    <input type="text" formControlName="{{ formMb.TITLE }}" />
   </label>
 
   <label>

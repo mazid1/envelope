@@ -10,7 +10,7 @@ export class Article extends BaseModel implements FormInterface {
   publishedAt: Date;
   tags: Array<String>;
 
-  constructor(data: any) {
+  constructor(data?: any) {
     super(data);
 
     if (!data) return;
@@ -39,4 +39,12 @@ export class Article extends BaseModel implements FormInterface {
   trimFormGroup(formGroup: FormGroup): FormGroup {
     return formGroup;
   }
+}
+
+export enum ArticleFormMembers {
+  TITLE = 'title',
+  CONTENT = 'content',
+  PUBLISHED = 'published',
+  PUBLISHED_AT = 'publishedAt',
+  TAGS = 'tags'
 }
