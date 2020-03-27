@@ -20,9 +20,7 @@ export class ArticleFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private articleService: ArticleService
-  ) {}
-
-  ngOnInit() {
+  ) {
     this.route.paramMap
       .pipe(
         switchMap(params =>
@@ -37,4 +35,6 @@ export class ArticleFormComponent implements OnInit {
     const article = new Article();
     this.articleForm = article.buildFormGroup();
   }
+
+  ngOnInit() {}
 }
