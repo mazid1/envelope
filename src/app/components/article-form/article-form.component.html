@@ -11,16 +11,10 @@
   </mat-form-field>
 
   <div style="display: flex; flex-direction: column;">
-    <input
-      matInput
-      formControlName="{{ formMb.PUBLISHED }}"
-      style="display: none;"
-    />
-
     <label #radioLabel class="radio-label mat-caption">Publish: </label>
-    <mat-radio-group aria-labelledby="radioLabel">
-      <mat-radio-button value="false" class="radio-button">No</mat-radio-button>
-      <mat-radio-button value="true" class="radio-button">Yes</mat-radio-button>
+    <mat-radio-group aria-labelledby="radioLabel" formControlName="{{ formMb.PUBLISHED }}">
+      <mat-radio-button [value]="false" class="radio-button">No</mat-radio-button>
+      <mat-radio-button [value]="true" class="radio-button">Yes</mat-radio-button>
     </mat-radio-group>
 
     <!-- <div

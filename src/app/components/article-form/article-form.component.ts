@@ -19,10 +19,10 @@ export class ArticleFormComponent implements OnInit {
 
   id: string;
 
-  constructor(
-    private route: ActivatedRoute,
-    private articleService: ArticleService
-  ) {
+  constructor(private route: ActivatedRoute, private articleService: ArticleService) {
+    const article = new Article();
+    this.articleForm = article.buildFormGroup();
+
     this.id = this.route.snapshot.params['id'];
     if (this.id) {
       this.articleService.getArticleById(this.id).subscribe((res: Article) => {
@@ -30,8 +30,6 @@ export class ArticleFormComponent implements OnInit {
         this.articleForm = article.buildFormGroup();
       });
     }
-    const article = new Article();
-    this.articleForm = article.buildFormGroup();
   }
 
   ngOnInit() {}
