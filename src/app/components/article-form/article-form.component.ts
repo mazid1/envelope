@@ -1,7 +1,8 @@
+import { Observable } from 'rxjs/internal/Observable';
 import { switchMap } from 'rxjs/operators';
 
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import { Article, ArticleFormMembers } from '../../models/article.model';
@@ -14,27 +15,28 @@ import { ArticleService } from '../../services/article.service';
 })
 export class ArticleFormComponent implements OnInit {
   formMb = ArticleFormMembers;
-
   articleForm: FormGroup;
+
+  id: string;
 
   constructor(
     private route: ActivatedRoute,
     private articleService: ArticleService
   ) {
-    this.route.paramMap
-      .pipe(
-        switchMap(params =>
-          this.articleService.getArticleById(params.get('id'))
-        )
-      )
-      .subscribe((res: Article) => {
+    this.id = this.route.snapshot.params['id'];
+    if (this.id) {
+      this.articleService.getArticleById(this.id).subscribe((res: Article) => {
         const article = new Article(res);
         this.articleForm = article.buildFormGroup();
       });
-
+    }
     const article = new Article();
     this.articleForm = article.buildFormGroup();
   }
 
   ngOnInit() {}
+
+  // get published() {
+  //   return this.articleForm.get('published');
+  // }
 }

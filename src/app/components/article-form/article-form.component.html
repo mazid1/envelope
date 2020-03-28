@@ -1,7 +1,33 @@
 <form [formGroup]="articleForm">
-  <mat-form-field appearance="fill" [floatLabel]="auto">
+  <mat-form-field appearance="fill">
     <mat-label>Title</mat-label>
-    <input matInput placeholder="Awesome Title Goes Here" required />
+    <input
+      matInput
+      formControlName="{{ formMb.TITLE }}"
+      placeholder="Awesome Title Goes Here"
+      required
+    />
     <!-- <mat-error *ngIf="email.invalid">Title is required</mat-error> -->
   </mat-form-field>
+
+  <div style="display: flex; flex-direction: column;">
+    <input
+      matInput
+      formControlName="{{ formMb.PUBLISHED }}"
+      style="display: none;"
+    />
+
+    <label #radioLabel class="radio-label mat-caption">Publish: </label>
+    <mat-radio-group aria-labelledby="radioLabel">
+      <mat-radio-button value="false" class="radio-button">No</mat-radio-button>
+      <mat-radio-button value="true" class="radio-button">Yes</mat-radio-button>
+    </mat-radio-group>
+
+    <!-- <div
+      *ngIf="notificationType.hasError('required') && psForm.submitted"
+      class="error"
+    >
+      Notification Type is required.
+    </div> -->
+  </div>
 </form>

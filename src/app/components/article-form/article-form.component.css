@@ -1,0 +1,11 @@
+:host {
+  width: 100%;
+}
+
+.radio-button {
+  margin: 10px;
+}
+
+.radio-label {
+  margin-left: 10px;
+}
