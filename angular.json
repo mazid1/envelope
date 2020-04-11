@@ -70,7 +70,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "envelope-client:build"
+            "browserTarget": "envelope-client:build",
+            "proxyConfig": "apps/envelope-client/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -95,9 +96,7 @@
               "apps/envelope-client/src/favicon.ico",
               "apps/envelope-client/src/assets"
             ],
-            "styles": [
-              "apps/envelope-client/src/styles.css"
-            ],
+            "styles": ["apps/envelope-client/src/styles.css"],
             "scripts": []
           }
         },
@@ -108,9 +107,7 @@
               "apps/envelope-client/tsconfig.app.json",
               "apps/envelope-client/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -135,13 +132,69 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/envelope-client-e2e/tsconfig.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "envelope-server": {
+      "root": "apps/envelope-server",
+      "sourceRoot": "apps/envelope-server/src",
+      "projectType": "application",
+      "prefix": "envelope-server",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/envelope-server",
+            "main": "apps/envelope-server/src/main.ts",
+            "tsConfig": "apps/envelope-server/tsconfig.app.json",
+            "assets": ["apps/envelope-server/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/envelope-server/src/environments/environment.ts",
+                  "with": "apps/envelope-server/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "envelope-server:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/envelope-server/tsconfig.app.json",
+              "apps/envelope-server/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/envelope-server/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/envelope-server/jest.config.js",
+            "tsConfig": "apps/envelope-server/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
     }
   },
-  "defaultProject": "envelope-client"
+  "defaultProject": "envelope-client",
+  "cli": {
+    "defaultCollection": "@nrwl/express"
+  }
 }

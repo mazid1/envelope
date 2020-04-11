@@ -13,6 +13,9 @@
     },
     "envelope-client-e2e": {
       "tags": []
+    },
+    "envelope-server": {
+      "tags": []
     }
   }
 }
