@@ -3,28 +3,28 @@
   "version": 1,
   "newProjectRoot": "",
   "projects": {
-    "envelope-client": {
+    "client": {
       "projectType": "application",
       "schematics": {},
-      "root": "apps/envelope-client",
-      "sourceRoot": "apps/envelope-client/src",
+      "root": "apps/client",
+      "sourceRoot": "apps/client/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/envelope-client",
-            "index": "apps/envelope-client/src/index.html",
-            "main": "apps/envelope-client/src/main.ts",
-            "polyfills": "apps/envelope-client/src/polyfills.ts",
-            "tsConfig": "apps/envelope-client/tsconfig.app.json",
+            "outputPath": "dist/apps/client",
+            "index": "apps/client/src/index.html",
+            "main": "apps/client/src/main.ts",
+            "polyfills": "apps/client/src/polyfills.ts",
+            "tsConfig": "apps/client/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "apps/envelope-client/src/favicon.ico",
-              "apps/envelope-client/src/assets"
+              "apps/client/src/favicon.ico",
+              "apps/client/src/assets"
             ],
             "styles": [
-              "apps/envelope-client/src/styles.css",
+              "apps/client/src/styles.css",
               "./node_modules/quill/dist/quill.core.css",
               "./node_modules/quill/dist/quill.bubble.css",
               "./node_modules/quill/dist/quill.snow.css",
@@ -40,8 +40,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/envelope-client/src/environments/environment.ts",
-                  "with": "apps/envelope-client/src/environments/environment.prod.ts"
+                  "replace": "apps/client/src/environments/environment.ts",
+                  "with": "apps/client/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -70,33 +70,33 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "envelope-client:build",
-            "proxyConfig": "apps/envelope-client/proxy.conf.json"
+            "browserTarget": "client:build",
+            "proxyConfig": "apps/client/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "envelope-client:build:production"
+              "browserTarget": "client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "envelope-client:build"
+            "browserTarget": "client:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "apps/envelope-client/src/test.ts",
-            "polyfills": "apps/envelope-client/src/polyfills.ts",
-            "tsConfig": "apps/envelope-client/tsconfig.spec.json",
-            "karmaConfig": "apps/envelope-client/karma.conf.js",
+            "main": "apps/client/src/test.ts",
+            "polyfills": "apps/client/src/polyfills.ts",
+            "tsConfig": "apps/client/tsconfig.spec.json",
+            "karmaConfig": "apps/client/karma.conf.js",
             "assets": [
-              "apps/envelope-client/src/favicon.ico",
-              "apps/envelope-client/src/assets"
+              "apps/client/src/favicon.ico",
+              "apps/client/src/assets"
             ],
-            "styles": ["apps/envelope-client/src/styles.css"],
+            "styles": ["apps/client/src/styles.css"],
             "scripts": []
           }
         },
@@ -104,53 +104,53 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/envelope-client/tsconfig.app.json",
-              "apps/envelope-client/tsconfig.spec.json"
+              "apps/client/tsconfig.app.json",
+              "apps/client/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
         }
       }
     },
-    "envelope-client-e2e": {
+    "client-e2e": {
       "projectType": "application",
-      "root": "apps/envelope-client-e2e",
+      "root": "apps/client-e2e",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "apps/envelope-client-e2e/protractor.conf.js",
-            "devServerTarget": "envelope-client:serve"
+            "protractorConfig": "apps/client-e2e/protractor.conf.js",
+            "devServerTarget": "client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "envelope-client:serve:production"
+              "devServerTarget": "client:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "apps/envelope-client-e2e/tsconfig.json",
+            "tsConfig": "apps/client-e2e/tsconfig.json",
             "exclude": ["**/node_modules/**"]
           }
         }
       }
     },
-    "envelope-server": {
-      "root": "apps/envelope-server",
-      "sourceRoot": "apps/envelope-server/src",
+    "server": {
+      "root": "apps/server",
+      "sourceRoot": "apps/server/src",
       "projectType": "application",
-      "prefix": "envelope-server",
+      "prefix": "server",
       "schematics": {},
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
           "options": {
-            "outputPath": "dist/apps/envelope-server",
-            "main": "apps/envelope-server/src/main.ts",
-            "tsConfig": "apps/envelope-server/tsconfig.app.json",
-            "assets": ["apps/envelope-server/src/assets"]
+            "outputPath": "dist/apps/server",
+            "main": "apps/server/src/main.ts",
+            "tsConfig": "apps/server/tsconfig.app.json",
+            "assets": ["apps/server/src/assets"]
           },
           "configurations": {
             "production": {
@@ -159,8 +159,8 @@
               "inspect": false,
               "fileReplacements": [
                 {
-                  "replace": "apps/envelope-server/src/environments/environment.ts",
-                  "with": "apps/envelope-server/src/environments/environment.prod.ts"
+                  "replace": "apps/server/src/environments/environment.ts",
+                  "with": "apps/server/src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -169,31 +169,31 @@
         "serve": {
           "builder": "@nrwl/node:execute",
           "options": {
-            "buildTarget": "envelope-server:build"
+            "buildTarget": "server:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/envelope-server/tsconfig.app.json",
-              "apps/envelope-server/tsconfig.spec.json"
+              "apps/server/tsconfig.app.json",
+              "apps/server/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/envelope-server/**"]
+            "exclude": ["**/node_modules/**", "!apps/server/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/envelope-server/jest.config.js",
-            "tsConfig": "apps/envelope-server/tsconfig.spec.json",
+            "jestConfig": "apps/server/jest.config.js",
+            "tsConfig": "apps/server/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
       }
     }
   },
-  "defaultProject": "envelope-client",
+  "defaultProject": "client",
   "cli": {
     "defaultCollection": "@nrwl/express"
   }

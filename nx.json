@@ -1,5 +1,5 @@
 {
-  "npmScope": "envelope-client",
+  "npmScope": "envelope",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",
@@ -8,13 +8,13 @@
     "nx.json": "*"
   },
   "projects": {
-    "envelope-client": {
+    "client": {
       "tags": []
     },
-    "envelope-client-e2e": {
+    "client-e2e": {
       "tags": []
     },
-    "envelope-server": {
+    "server": {
       "tags": []
     }
   }
