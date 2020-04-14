@@ -30,7 +30,7 @@ export class Article extends BaseModel implements FormInterface {
       content: new FormControl(tempArticle.content),
       published: new FormControl(tempArticle.published),
       publishedAt: new FormControl(tempArticle.publishedAt),
-      tags: new FormArray([])
+      tags: new FormControl(tempArticle.tags)
     });
 
     return articleForm;

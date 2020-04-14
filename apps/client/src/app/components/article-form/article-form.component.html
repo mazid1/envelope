@@ -24,4 +24,23 @@
       Notification Type is required.
     </div> -->
   </div>
+
+  <mat-form-field appearance="fill">
+    <mat-select
+      formControlName="{{ formMb.TAGS }}"
+      placeholder="Tags"
+      [multiple]="true"
+      #multiSelect
+    >
+      <mat-option>
+        <ngx-mat-select-search
+          [formControl]="tagFilterCtrl"
+          placeholderLabel="Search"
+        ></ngx-mat-select-search>
+      </mat-option>
+      <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+        {{ tag }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </form>
