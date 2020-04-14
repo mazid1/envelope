@@ -1,7 +1,6 @@
-import { Observable } from 'rxjs/internal/Observable';
 import { ReplaySubject } from 'rxjs/internal/ReplaySubject';
 import { Subject } from 'rxjs/internal/Subject';
-import { switchMap, take, takeUntil } from 'rxjs/operators';
+import { take, takeUntil } from 'rxjs/operators';
 
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -21,9 +20,7 @@ export class ArticleFormComponent implements OnInit, AfterViewInit, OnDestroy {
   articleForm: FormGroup;
 
   id: string;
-  // tagFilterCtrl = new FormControl('');
 
-  /** list of banks */
   protected tags = [
     'angular',
     'javascript',
@@ -36,13 +33,10 @@ export class ArticleFormComponent implements OnInit, AfterViewInit, OnDestroy {
     'java'
   ];
 
-  /** control for the selected bank for multi-selection */
-  // public bankMultiCtrl: FormControl = new FormControl();
-
   /** control for the MatSelect filter keyword multi-selection */
   public tagFilterCtrl: FormControl = new FormControl();
 
-  /** list of banks filtered by search keyword */
+  /** list of tags filtered by search keyword */
   public filteredTags = new ReplaySubject<any[]>(1);
 
   @ViewChild('multiSelect', { static: true }) multiSelect: MatSelect;
@@ -64,10 +58,7 @@ export class ArticleFormComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-    // set initial selection
-    this.articleForm.get(this.formMb.TAGS).setValue([this.tags[2], this.tags[5]]);
-
-    // load the initial bank list
+    // load the initial tag list
     this.filteredTags.next(this.tags.slice());
 
     // listen for search field value changes
@@ -83,6 +74,7 @@ export class ArticleFormComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this._onDestroy.next();
     this._onDestroy.complete();
+    console.log(this.articleForm);
   }
 
   /**
@@ -111,7 +103,7 @@ export class ArticleFormComponent implements OnInit, AfterViewInit, OnDestroy {
     } else {
       search = search.toLowerCase();
     }
-    // filter the banks
+    // filter the tags
     this.filteredTags.next(this.tags.filter(tag => tag.toLowerCase().indexOf(search) > -1));
   }
   // get published() {

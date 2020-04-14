@@ -4,11 +4,11 @@ import { BaseModel } from './base.model';
 import { FormInterface } from './form.interface';
 
 export class Article extends BaseModel implements FormInterface {
-  title: String;
+  title: string;
   content: Array<any>;
-  published: Boolean;
+  published: boolean;
   publishedAt: Date;
-  tags: Array<String>;
+  tags: Array<string>;
 
   constructor(data?: any) {
     super(data);
@@ -28,7 +28,7 @@ export class Article extends BaseModel implements FormInterface {
     const articleForm = new FormGroup({
       title: new FormControl(tempArticle.title),
       content: new FormControl(tempArticle.content),
-      published: new FormControl(tempArticle.published),
+      published: new FormControl(tempArticle.published ? tempArticle.published : false),
       publishedAt: new FormControl(tempArticle.publishedAt),
       tags: new FormControl(tempArticle.tags)
     });
