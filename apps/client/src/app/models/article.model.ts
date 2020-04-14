@@ -5,7 +5,7 @@ import { FormInterface } from './form.interface';
 
 export class Article extends BaseModel implements FormInterface {
   title: string;
-  content: Array<any>;
+  content: string;
   published: boolean;
   publishedAt: Date;
   tags: Array<string>;
@@ -13,7 +13,9 @@ export class Article extends BaseModel implements FormInterface {
   constructor(data?: any) {
     super(data);
 
-    if (!data) return;
+    if (!data) {
+      return;
+    }
 
     this.title = data.title;
     this.content = data.content;

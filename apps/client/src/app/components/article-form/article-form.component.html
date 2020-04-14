@@ -39,4 +39,8 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+
+  <app-text-editor [editorFormControl]="articleForm.controls[formMb.CONTENT]"></app-text-editor>
 </form>
+
+<button (click)="save()">Save</button>

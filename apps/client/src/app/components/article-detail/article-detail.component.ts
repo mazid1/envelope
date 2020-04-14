@@ -12,13 +12,10 @@ import { ArticleService } from '../../services/article.service';
   styleUrls: ['./article-detail.component.css']
 })
 export class ArticleDetailComponent implements OnInit {
-  content = [];
+  content: string;
   modules = {};
 
-  constructor(
-    private route: ActivatedRoute,
-    private articleService: ArticleService
-  ) {
+  constructor(private route: ActivatedRoute, private articleService: ArticleService) {
     this.modules = {
       formula: true,
       imageResize: {},
@@ -28,11 +25,7 @@ export class ArticleDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap
-      .pipe(
-        switchMap(params =>
-          this.articleService.getArticleById(params.get('id'))
-        )
-      )
+      .pipe(switchMap(params => this.articleService.getArticleById(params.get('id'))))
       .subscribe((res: Article) => (this.content = res.content));
   }
 }

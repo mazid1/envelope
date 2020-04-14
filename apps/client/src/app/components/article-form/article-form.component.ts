@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Article, ArticleFormMembers } from '../../models/article.model';
 import { ArticleService } from '../../services/article.service';
+import { TextEditorService } from '../../services/text-editor.service';
 
 @Component({
   selector: 'app-article-form',
@@ -106,7 +107,9 @@ export class ArticleFormComponent implements OnInit, AfterViewInit, OnDestroy {
     // filter the tags
     this.filteredTags.next(this.tags.filter(tag => tag.toLowerCase().indexOf(search) > -1));
   }
-  // get published() {
-  //   return this.articleForm.get('published');
-  // }
+
+  save() {
+    // this.articleForm.controls[this.formMb.CONTENT].setValue = this.textEditorService.content;
+    console.log(this.articleForm);
+  }
 }

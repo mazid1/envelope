@@ -1,10 +1,11 @@
 <div class="editor-container">
   <quill-editor
-    #editor
     class="my-ql-editor"
     [modules]="modules"
-    [styles]="{width: '100%', overflowY: 'auto'}"
-    (onContentChanged)="onContentChanged($event)">
+    [formControl]="editorFormControl"
+    name="editorFormControl"
+    format="json"
+  >
   </quill-editor>
-  <button (click)="save()">Save</button>
+  <!-- <button (click)="save()">Save</button> -->
 </div>
