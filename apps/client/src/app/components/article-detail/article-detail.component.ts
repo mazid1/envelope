@@ -12,7 +12,7 @@ import { ArticleService } from '../../services/article.service';
   styleUrls: ['./article-detail.component.css']
 })
 export class ArticleDetailComponent implements OnInit {
-  content: string;
+  content = [];
   modules = {};
 
   constructor(private route: ActivatedRoute, private articleService: ArticleService) {
@@ -26,6 +26,8 @@ export class ArticleDetailComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap
       .pipe(switchMap(params => this.articleService.getArticleById(params.get('id'))))
-      .subscribe((res: Article) => (this.content = res.content));
+      .subscribe((res: { content: [{ ops }] }) => {
+        this.content = res.content[0].ops;
+      });
   }
 }

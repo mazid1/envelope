@@ -5,7 +5,7 @@ import { FormInterface } from './form.interface';
 
 export class Article extends BaseModel implements FormInterface {
   title: string;
-  content: string;
+  content: [];
   published: boolean;
   publishedAt: Date;
   tags: Array<string>;

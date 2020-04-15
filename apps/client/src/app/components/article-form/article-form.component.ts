@@ -110,6 +110,9 @@ export class ArticleFormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   save() {
     // this.articleForm.controls[this.formMb.CONTENT].setValue = this.textEditorService.content;
-    console.log(this.articleForm);
+    console.log(this.articleForm.value);
+    this.articleService.saveArticle(this.articleForm.value).subscribe(res => {
+      console.log(res);
+    });
   }
 }
