@@ -19,7 +19,7 @@ mongoose
   .catch(err => console.log(err));
 
 app.use(cors());
-app.use(json());
+app.use(json({ limit: '50mb' }));
 
 app.use('/api/', envelopeRouter);
 

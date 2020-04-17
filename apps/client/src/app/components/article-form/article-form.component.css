@@ -9,3 +9,8 @@
 .radio-label {
   margin-left: 10px;
 }
+
+.radio-group-container {
+  display: flex;
+  flex-direction: column;
+}

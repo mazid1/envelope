@@ -17,4 +17,8 @@ export class ArticleService {
   getArticleById(id: string): Observable<any> {
     return this.httpClient.get<Article>(`${this.apiUrl}article/${id}`);
   }
+
+  saveArticle(article: any): Observable<any> {
+    return this.httpClient.post<Article>(`${this.apiUrl}article`, article);
+  }
 }
