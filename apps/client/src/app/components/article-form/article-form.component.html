@@ -10,8 +10,8 @@
     <!-- <mat-error *ngIf="email.invalid">Title is required</mat-error> -->
   </mat-form-field>
 
-  <div style="display: flex; flex-direction: column;">
-    <label #radioLabel class="radio-label mat-caption">Publish: </label>
+  <div class="radio-group-container">
+    <mat-label #radioLabel class="radio-label mat-caption">Publish</mat-label>
     <mat-radio-group aria-labelledby="radioLabel" formControlName="{{ formMb.PUBLISHED }}">
       <mat-radio-button [value]="false" class="radio-button">No</mat-radio-button>
       <mat-radio-button [value]="true" class="radio-button">Yes</mat-radio-button>
@@ -24,4 +24,23 @@
       Notification Type is required.
     </div> -->
   </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Tags</mat-label>
+    <mat-select formControlName="{{ formMb.TAGS }}" [multiple]="true" #multiSelect>
+      <mat-option>
+        <ngx-mat-select-search
+          [formControl]="tagFilterCtrl"
+          placeholderLabel="Search"
+        ></ngx-mat-select-search>
+      </mat-option>
+      <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+        {{ tag }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <app-text-editor [editorFormControl]="articleForm.controls[formMb.CONTENT]"></app-text-editor>
 </form>
+
+<button (click)="save()">Save</button>

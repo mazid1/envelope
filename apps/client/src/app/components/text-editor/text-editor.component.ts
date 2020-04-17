@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-
 import Quill from 'quill';
-
 import ImageResize from 'quill-image-resize-module';
+
+import {
+    Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild
+} from '@angular/core';
+import { FormControl } from '@angular/forms';
+
 import { TextEditorService } from '../../services/text-editor.service';
 
 Quill.register('modules/imageResize', ImageResize);
@@ -13,28 +16,20 @@ Quill.register('modules/imageResize', ImageResize);
   styleUrls: ['./text-editor.component.css']
 })
 export class TextEditorComponent implements OnInit {
+  @Input() editorFormControl: FormControl;
 
   modules = {};
-  content = [];
 
-  constructor(private textEditorService: TextEditorService) {
+  constructor() {
     this.modules = {
       formula: true,
       imageResize: {},
       syntax: true
     };
-  }
-
-  ngOnInit() {
-  }
-
-  onContentChanged(event) {
-    if (event.hasOwnProperty('content') && event.content.hasOwnProperty('ops')) {
-      this.content = event.content.ops;
+    if (!this.editorFormControl) {
+      this.editorFormControl = new FormControl();
     }
   }
 
-  save() {
-    this.textEditorService.content = this.content;
-  }
+  ngOnInit() {}
 }
