@@ -5,7 +5,11 @@
     "types": [
       "node"
     ],
-    "paths": {}
+    "paths": {
+      "@envelope/constants": [
+        "libs/constants/src/index.ts"
+      ]
+    }
   },
   "exclude": [
     "**/*.spec.ts"

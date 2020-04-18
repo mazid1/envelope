@@ -23,8 +23,13 @@ export const getCategoryById = async id => {
 
 export const createCategory = async newCategory => {
   try {
-    const category = await newCategory.save();
-    return category;
+    if (Array.isArray(newCategory)) {
+      const categories = await Category.insertMany(newCategory);
+      return categories;
+    } else {
+      const category = await newCategory.save();
+      return category;
+    }
   } catch (e) {
     console.error(e);
     throw Error('Error while saving Category');

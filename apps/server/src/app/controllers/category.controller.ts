@@ -24,21 +24,8 @@ export const getCategoryById = async (req, res) => {
 };
 
 export const createCategory = async (req, res) => {
-  const newCategory = new Category({
-    // todo: set Data here
-    // title: req.body.title,
-    // content: req.body.content,
-    // published: req.body.published,
-    // publishedAt: req.body.publishedAt
-    //   ? req.body.publishedAt
-    //   : req.body.published
-    //   ? Date.now()
-    //   : null,
-    // tags: req.body.tags
-  });
-
   try {
-    const category = await CategoryService.createCategory(newCategory);
+    const category = await CategoryService.createCategory(req.body);
     return res.status(201).send(category);
   } catch (e) {
     res.status(400).send(null);

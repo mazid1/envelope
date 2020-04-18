@@ -19,10 +19,7 @@
             "polyfills": "apps/client/src/polyfills.ts",
             "tsConfig": "apps/client/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/client/src/favicon.ico",
-              "apps/client/src/assets"
-            ],
+            "assets": ["apps/client/src/favicon.ico", "apps/client/src/assets"],
             "styles": [
               "apps/client/src/styles.css",
               "./node_modules/quill/dist/quill.core.css",
@@ -92,10 +89,7 @@
             "polyfills": "apps/client/src/polyfills.ts",
             "tsConfig": "apps/client/tsconfig.spec.json",
             "karmaConfig": "apps/client/karma.conf.js",
-            "assets": [
-              "apps/client/src/favicon.ico",
-              "apps/client/src/assets"
-            ],
+            "assets": ["apps/client/src/favicon.ico", "apps/client/src/assets"],
             "styles": ["apps/client/src/styles.css"],
             "scripts": []
           }
@@ -191,10 +185,36 @@
           }
         }
       }
+    },
+    "constants": {
+      "root": "libs/constants",
+      "sourceRoot": "libs/constants/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/constants/tsconfig.lib.json",
+              "libs/constants/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/constants/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/constants/jest.config.js",
+            "tsConfig": "libs/constants/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "defaultProject": "client",
   "cli": {
-    "defaultCollection": "@nrwl/express"
+    "defaultCollection": "@nrwl/angular"
   }
 }
