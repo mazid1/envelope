@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Category } from '../../models/category.model';
+import { ArticleService } from '../../services/article.service';
 import { CategoryService } from '../../services/category.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { CategoryService } from '../../services/category.service';
 export class CategoryListComponent implements OnInit {
   categories: Category[];
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(private categoryService: CategoryService, private articleService: ArticleService) {}
 
   ngOnInit() {
     this.categoryService.getCategories().subscribe(data => (this.categories = data));
@@ -19,6 +20,8 @@ export class CategoryListComponent implements OnInit {
 
   onClick(category: string) {
     console.log(category);
-    // todo: Search articles by category
+    this.articleService.getArticlesByTag(category).subscribe(res => {
+      console.table(res);
+    });
   }
 }
