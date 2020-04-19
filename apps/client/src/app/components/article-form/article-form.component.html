@@ -10,6 +10,19 @@
     <!-- <mat-error *ngIf="email.invalid">Title is required</mat-error> -->
   </mat-form-field>
 
+  <mat-form-field appearance="fill">
+    <mat-label>Summary</mat-label>
+    <textarea
+      matInput
+      formControlName="{{ formMb.SUMMARY }}"
+      placeholder="Short and engaging summary..."
+      [mat-autosize]="true"
+      [matAutosizeMinRows]="1"
+      [matAutosizeMaxRows]="4"
+      required
+    ></textarea>
+  </mat-form-field>
+
   <div class="radio-group-container">
     <mat-label #radioLabel class="radio-label mat-caption">Publish</mat-label>
     <mat-radio-group aria-labelledby="radioLabel" formControlName="{{ formMb.PUBLISHED }}">
@@ -27,7 +40,7 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Tags</mat-label>
-    <mat-select formControlName="{{ formMb.TAGS }}" [multiple]="true" #multiSelect>
+    <mat-select formControlName="{{ formMb.TAGS }}" [multiple]="true" required #multiSelect>
       <mat-option>
         <ngx-mat-select-search
           [formControl]="tagFilterCtrl"
@@ -40,7 +53,10 @@
     </mat-select>
   </mat-form-field>
 
-  <app-text-editor [editorFormControl]="articleForm.controls[formMb.CONTENT]"></app-text-editor>
+  <app-text-editor
+    [editorFormControl]="articleForm.controls[formMb.CONTENT]"
+    required
+  ></app-text-editor>
 </form>
 
 <button (click)="save()">Save</button>

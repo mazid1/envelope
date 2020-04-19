@@ -10,6 +10,10 @@ const articleSchema = new mongoose.Schema(
       type: Array,
       required: true
     },
+    summary: {
+      type: String,
+      required: true
+    },
     published: {
       type: Boolean,
       default: false

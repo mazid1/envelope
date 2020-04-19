@@ -2,8 +2,12 @@ import { Article } from '../models/article.model';
 
 export const getArticles = async (query, page, limit) => {
   // todo: pagination
+  let fields = null;
+  if (query.hasOwnProperty('tags')) {
+    fields = 'title summary tags';
+  }
   try {
-    const articles = await Article.find(query);
+    const articles = await Article.find(query, fields);
     return articles;
   } catch (e) {
     console.log(e.message);

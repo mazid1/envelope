@@ -28,6 +28,7 @@ export const createArticle = async (req, res) => {
   const newArticle = new Article({
     title: req.body.title,
     content: req.body.content,
+    summary: req.body.summary,
     published: req.body.published,
     publishedAt: req.body.publishedAt
       ? req.body.publishedAt

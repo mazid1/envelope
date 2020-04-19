@@ -6,6 +6,7 @@ import { FormInterface } from './form.interface';
 export class Article extends BaseModel implements FormInterface {
   title: string;
   content: [];
+  summary: string;
   published: boolean;
   publishedAt: Date;
   tags: Array<string>;
@@ -19,6 +20,7 @@ export class Article extends BaseModel implements FormInterface {
 
     this.title = data.title;
     this.content = data.content;
+    this.summary = data.summary;
     this.published = data.published;
     this.publishedAt = data.publishedAt;
     this.tags = data.tags;
@@ -30,6 +32,7 @@ export class Article extends BaseModel implements FormInterface {
     const articleForm = new FormGroup({
       title: new FormControl(tempArticle.title),
       content: new FormControl(tempArticle.content),
+      summary: new FormControl(tempArticle.summary),
       published: new FormControl(tempArticle.published ? tempArticle.published : false),
       publishedAt: new FormControl(tempArticle.publishedAt),
       tags: new FormControl(tempArticle.tags)
@@ -46,6 +49,7 @@ export class Article extends BaseModel implements FormInterface {
 export enum ArticleFormMembers {
   TITLE = 'title',
   CONTENT = 'content',
+  SUMMARY = 'summary',
   PUBLISHED = 'published',
   PUBLISHED_AT = 'publishedAt',
   TAGS = 'tags'
