@@ -5,9 +5,9 @@ import { Article } from '../models/article.model';
 /**
  * Returns default fields of the list of Articles.
  * Default fields are Title, Summary and Tags
- * @param query
- * @param page
- * @param limit
+ * @param query: contains query from client
+ * @param page: page number
+ * @param limit: max size of page
  */
 export const getArticles = async (query, page, limit) => {
   // todo: pagination
@@ -30,7 +30,7 @@ export const getArticles = async (query, page, limit) => {
 
 /**
  * Returns all fields of the matched Article
- * @param id
+ * @param id: id of the Article
  */
 export const getArticleById = async id => {
   try {
