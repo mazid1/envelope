@@ -5,3 +5,9 @@ export class ApiConstant {
 
   static categories = 'categories';
 }
+
+export class QueryParam {
+  static TAGS = 'tags';
+  static SUMMARY = 'summary';
+  static FIELDS = 'fields';
+}

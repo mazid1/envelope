@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Params } from '@angular/router';
 import { ApiConstant } from '@envelope/constants';
 
 import { environment } from '../../environments/environment';
@@ -16,8 +17,8 @@ export class ArticleService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getArticlesByTag(tag: string): Observable<Article> {
-    return this.httpClient.get<Article>(`${this.articleBaseUrl}`, { params: { tags: tag } });
+  getArticles(params?: Params): Observable<Article> {
+    return this.httpClient.get<Article>(`${this.articleBaseUrl}`, { params });
   }
 
   getArticleById(id: string): Observable<any> {

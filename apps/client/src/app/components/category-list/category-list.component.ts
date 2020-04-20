@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Category } from '../../models/category.model';
-import { ArticleService } from '../../services/article.service';
 import { CategoryService } from '../../services/category.service';
 
 @Component({
@@ -12,16 +12,13 @@ import { CategoryService } from '../../services/category.service';
 export class CategoryListComponent implements OnInit {
   categories: Category[];
 
-  constructor(private categoryService: CategoryService, private articleService: ArticleService) {}
+  constructor(private router: Router, private categoryService: CategoryService) {}
 
   ngOnInit() {
     this.categoryService.getCategories().subscribe(data => (this.categories = data));
   }
 
   onClick(category: string) {
-    console.log(category);
-    this.articleService.getArticlesByTag(category).subscribe(res => {
-      console.table(res);
-    });
+    this.router.navigate(['/'], { queryParams: { tags: category, fields: 'title summary tags' } });
   }
 }
