@@ -1,14 +1,17 @@
 <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between" fxFlexFill>
   <div fxFlex="20" fxFlex.xs="60" class="nav">
-
     <mat-sidenav class="sidenav" opened>
-
       <div class="avatar" routerLink="/" tabindex="-1">
-        <img src="../assets/mzd2.jpg" alt="Avatar">     
+        <img src="../assets/mzd2.jpg" alt="Avatar" />
       </div>
 
       <mat-nav-list class="nav-item-container" fxLayout="column">
-        <mat-list-item routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</mat-list-item>
+        <mat-list-item
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Home</mat-list-item
+        >
         <mat-list-item routerLink="/blog" routerLinkActive="active">Blog</mat-list-item>
         <mat-list-item routerLink="/about" routerLinkActive="active">About me</mat-list-item>
         <mat-list-item routerLink="/contact" routerLinkActive="active">Contact</mat-list-item>
@@ -31,14 +34,14 @@
           <fa-icon [icon]="faFacebook"></fa-icon>
         </a>
       </mat-nav-list>
-
     </mat-sidenav>
-
   </div>
 
   <div fxFlex="60" class="main-container">
     <router-outlet></router-outlet>
   </div>
 
-  <div fxFlex="20" class="r-sidebar">Right sidebar</div>
+  <div fxFlex="20" class="r-sidebar">
+    <app-category-list></app-category-list>
+  </div>
 </div>

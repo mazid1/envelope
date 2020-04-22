@@ -9,7 +9,6 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Article, ArticleFormMembers } from '../../models/article.model';
 import { ArticleService } from '../../services/article.service';
-import { TextEditorService } from '../../services/text-editor.service';
 
 @Component({
   selector: 'app-article-form',

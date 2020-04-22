@@ -8,7 +8,7 @@ export class BaseModel {
 
     this.id = data.id;
 
-    if (data.createdDate) this.createdAt = new Date(data.createdDate);
-    if (data.modifiedDate) this.updatedAt = new Date(data.modifiedDate);
+    if (data.createdAt) this.createdAt = new Date(data.createdAt);
+    if (data.updatedAt) this.updatedAt = new Date(data.updatedAt);
   }
 }

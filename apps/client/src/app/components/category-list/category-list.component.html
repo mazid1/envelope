@@ -1,1 +1,6 @@
-<p>category-list works!</p>
+<div #actionListLabel class="mat-h1">Categories</div>
+<mat-action-list area-labelledby="actionListLabel">
+  <button *ngFor="let cat of categories" mat-list-item (click)="onClick(cat.value)">
+    {{ cat.displayText }}
+  </button>
+</mat-action-list>

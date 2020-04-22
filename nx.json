@@ -16,6 +16,9 @@
     },
     "server": {
       "tags": []
+    },
+    "constants": {
+      "tags": []
     }
   }
 }

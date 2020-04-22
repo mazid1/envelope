@@ -1,3 +1,5 @@
+import './app/data/init-category.data';
+
 import { json } from 'body-parser';
 import * as cors from 'cors';
 import * as dotenv from 'dotenv';
