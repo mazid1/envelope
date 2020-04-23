@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { Article } from '../../models/article.model';
 import { ArticleService } from '../../services/article.service';
 
 @Component({
@@ -9,12 +10,14 @@ import { ArticleService } from '../../services/article.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  articles: Article[];
+
   constructor(private activatedRoute: ActivatedRoute, private articleService: ArticleService) {}
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
       this.articleService.getArticles(params).subscribe(res => {
-        console.table(res);
+        this.articles = res;
       });
     });
   }

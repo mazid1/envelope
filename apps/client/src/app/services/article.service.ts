@@ -17,15 +17,15 @@ export class ArticleService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getArticles(params?: Params): Observable<Article> {
-    return this.httpClient.get<Article>(`${this.articleBaseUrl}`, { params });
+  getArticles(params?: Params): Observable<Article[]> {
+    return this.httpClient.get<Article[]>(`${this.articleBaseUrl}`, { params });
   }
 
-  getArticleById(id: string): Observable<any> {
+  getArticleById(id: string): Observable<Article> {
     return this.httpClient.get<Article>(`${this.articleBaseUrl}/${id}`);
   }
 
-  saveArticle(article: any): Observable<any> {
+  saveArticle(article: any): Observable<Article> {
     return this.httpClient.post<Article>(`${this.articleBaseUrl}`, article);
   }
 }

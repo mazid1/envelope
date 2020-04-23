@@ -1,8 +1,3 @@
-.post-card {
-    background: whitesmoke;
-    color: black;
-    margin-bottom: 10px;
-}
-.post-card-subtitle {
-    color: rgb(128, 128, 128);
+.article-card {
+  margin-bottom: 10px;
 }

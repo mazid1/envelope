@@ -1,17 +1,14 @@
-<mat-card class="post-card">
-	<mat-card-header>
-		<mat-card-title>Changes in Angular 9</mat-card-title>
-		<mat-card-subtitle class="post-card-subtitle">17/02/2020</mat-card-subtitle>
-	</mat-card-header>
+<mat-card class="article-card">
+  <mat-card-header>
+    <mat-card-title>{{ article.title }}</mat-card-title>
+    <mat-card-subtitle>{{ article.publishedAt | date: 'dd-MM-yyy' }}</mat-card-subtitle>
+  </mat-card-header>
   <mat-card-content>
-    <p>
-      Sample text for mat card content. Sample text for mat card content. Sample text for mat card content. Sample text for mat card content. Sample text for mat card content. Sample text for mat card content. Sample text for mat card content. Sample text for mat card content. Sample text for mat card content. Sample text for mat card content.
-    </p>
-    <p>
-      Sample text for mat card content. Sample text for mat card content. Sample text for mat card content. Sample text for mat card content. Sample text for mat card content.
-    </p>
+    <p>{{ article.summary }}</p>
   </mat-card-content>
   <mat-card-actions>
-    <a href="#">angular</a>
+    <button *ngFor="let tag of article.tags" mat-button color="accent" (click)="onClick(tag)">
+      {{ tag }}
+    </button>
   </mat-card-actions>
 </mat-card>
