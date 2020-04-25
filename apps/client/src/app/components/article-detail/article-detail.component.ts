@@ -26,8 +26,11 @@ export class ArticleDetailComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap
       .pipe(switchMap(params => this.articleService.getArticleById(params.get('id'))))
-      .subscribe((res: { content: [{ ops }] }) => {
-        this.content = res.content[0].ops;
+      .subscribe(({ content }: Article) => {
+        const _ = content ? content : [];
+        if (Array.isArray(_) && _.length > 0) {
+          this.content = _[0].ops;
+        }
       });
   }
 }
