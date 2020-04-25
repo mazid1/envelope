@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.get('/', ArticleController.getArticles);
 router.get('/:id', ArticleController.getArticleById);
+router.get('/:page/:limit', ArticleController.getArticles);
 
 router.post('/', ArticleController.createArticle);
 

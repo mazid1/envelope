@@ -3,7 +3,7 @@ import * as ArticleService from '../services/article.service';
 
 export const getArticles = async (req, res) => {
   // todo: validation
-  const page = req.params.page ? req.params.page : 1;
+  const page = req.params.page ? req.params.page : 0;
   const limit = req.params.limit ? req.params.limit : 10;
   const query = req.query ? req.query : {};
   try {

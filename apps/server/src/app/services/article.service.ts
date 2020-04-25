@@ -1,4 +1,5 @@
 import { QueryParam } from '@envelope/constants';
+import { PagedResponse } from '@envelope/models';
 
 import { Article } from '../models/article.model';
 
@@ -10,7 +11,6 @@ import { Article } from '../models/article.model';
  * @param limit: max size of page
  */
 export const getArticles = async (query, page, limit) => {
-  // todo: pagination
   console.log('Query at getArticles: ', query);
 
   let fields = 'title summary tags'; // default fields for list of articles
@@ -20,8 +20,21 @@ export const getArticles = async (query, page, limit) => {
   }
 
   try {
-    const articles = await Article.find(query, fields);
-    return articles;
+    const length: number = await Article.countDocuments(query);
+    const articles = await Article.find(query, fields, {
+      skip: +page * +limit,
+      limit: +limit
+    });
+
+    const pagedResponse = new PagedResponse({
+      length,
+      contents: articles,
+      pageIndex: +page,
+      pageSize: +limit,
+      pages: Math.ceil(length / +limit)
+    });
+
+    return pagedResponse;
   } catch (e) {
     console.log(e.message);
     throw Error('Error while Paginating Articles');
