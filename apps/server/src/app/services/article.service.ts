@@ -10,7 +10,7 @@ import { Article } from '../models/article.model';
  * @param page: page number
  * @param limit: max size of page
  */
-export const getArticles = async (query, page, limit) => {
+export const getArticles = async (query, page, limit): Promise<PagedResponse<any>> => {
   console.log('Query at getArticles: ', query);
 
   let fields = 'title summary tags'; // default fields for list of articles
@@ -20,18 +20,18 @@ export const getArticles = async (query, page, limit) => {
   }
 
   try {
-    const length: number = await Article.countDocuments(query);
+    const totalCount: number = await Article.countDocuments(query);
     const articles = await Article.find(query, fields, {
       skip: +page * +limit,
       limit: +limit
     });
 
-    const pagedResponse = new PagedResponse({
-      length,
-      contents: articles,
+    const pagedResponse = new PagedResponse<any>({
       pageIndex: +page,
       pageSize: +limit,
-      pages: Math.ceil(length / +limit)
+      results: articles,
+      totalCount,
+      totalPages: Math.ceil(totalCount / +limit)
     });
 
     return pagedResponse;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PagedResponse } from '@envelope/models';
 
 import { Article } from '../../models/article.model';
 import { ArticleService } from '../../services/article.service';
@@ -10,7 +11,7 @@ import { ArticleService } from '../../services/article.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  articles: Article[];
+  articles: PagedResponse<Article>;
 
   constructor(private activatedRoute: ActivatedRoute, private articleService: ArticleService) {}
 
