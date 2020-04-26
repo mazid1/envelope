@@ -16,3 +16,9 @@ export class PagedResponse<T> {
     this.totalPages = data.totalPages;
   }
 }
+
+export class QueryModel {
+  conditions: any;
+  projection: string | string[];
+  options: { page: number; limit: number };
+}

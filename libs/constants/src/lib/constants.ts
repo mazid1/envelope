@@ -7,7 +7,16 @@ export class ApiConstant {
 }
 
 export class QueryParam {
-  static TAGS = 'tags';
-  static SUMMARY = 'summary';
   static FIELDS = 'fields';
+  static PAGE = 'page';
+  static LIMIT = 'limit';
+}
+
+export class DefaultPageInfo {
+  static PAGE_INDEX = 0;
+  static MIN_PAGE_INDEX = 0;
+
+  static PAGE_SIZE = 10;
+  static MIN_PAGE_SIZE = 1;
+  static MAX_PAGE_SIZE = 50;
 }
