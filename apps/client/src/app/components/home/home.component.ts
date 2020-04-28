@@ -11,7 +11,7 @@ import { ArticleService } from '../../services/article.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  articles: PagedResponse<Article>;
+  articles: PagedResponse<Article> = new PagedResponse<Article>();
 
   constructor(private activatedRoute: ActivatedRoute, private articleService: ArticleService) {}
 

@@ -1,3 +1,10 @@
 <div class="home-container">
+  <mat-paginator
+    class="card-paginator"
+    [length]="articles.totalCount"
+    [pageSize]="articles.pageSize"
+    [hidePageSize]="true"
+  >
+  </mat-paginator>
   <app-article-card *ngFor="let article of articles.results" [article]="article"></app-article-card>
 </div>

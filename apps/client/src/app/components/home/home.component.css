@@ -9,3 +9,7 @@
 .home-container ::ng-deep :not(:last-child) mat-card {
   margin-bottom: 10px;
 }
+
+.card-paginator {
+  margin-bottom: 10px;
+}
