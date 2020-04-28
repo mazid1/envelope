@@ -94,7 +94,7 @@ const formatQuery = (query: any): QueryModel => {
     delete query[QueryParam.PAGE];
   }
 
-  let sort = '';
+  let sort = '-publishedAt -updatedAt -createdAt';
   if (query.hasOwnProperty(QueryParam.SORT)) {
     sort = query[QueryParam.SORT];
     delete query[QueryParam.SORT];
