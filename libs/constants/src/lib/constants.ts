@@ -10,6 +10,7 @@ export class QueryParam {
   static FIELDS = 'fields';
   static PAGE = 'page';
   static LIMIT = 'limit';
+  static SORT = 'sort';
 }
 
 export class DefaultPageInfo {

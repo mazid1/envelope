@@ -14,10 +14,11 @@ export const getArticles = async (query): Promise<PagedResponse<any>> => {
   const formattedQuery: QueryModel = formatQuery(query);
 
   try {
-    const totalCount: number = await Article.countDocuments(formattedQuery.conditions);
-    const articles = await Article.find(formattedQuery.conditions, formattedQuery.projection, {
+    const totalCount: number = await Article.countDocuments(formattedQuery.filter);
+    const articles = await Article.find(formattedQuery.filter, formattedQuery.projection, {
       skip: formattedQuery.options.page * formattedQuery.options.limit,
-      limit: formattedQuery.options.limit
+      limit: formattedQuery.options.limit,
+      sort: formattedQuery.options.sort
     });
 
     const pagedResponse = new PagedResponse<any>({
@@ -61,8 +62,8 @@ export const createArticle = async newArticle => {
 
 /**
  * Take the query from client and return it into
- * { conditions, projection, options } this form
- * conditions: search conditions
+ * { filter, projection, options } this form
+ * filter: search filter
  * projection: list of fields name
  * options: page information {page, limit}
  * @param query query from string from client
@@ -93,9 +94,13 @@ const formatQuery = (query: any): QueryModel => {
     delete query[QueryParam.PAGE];
   }
 
-  const options = { page, limit };
+  let sort = '';
+  if (query.hasOwnProperty(QueryParam.SORT)) {
+    sort = query[QueryParam.SORT];
+    delete query[QueryParam.SORT];
+  }
 
-  const conditions = query;
+  const options = { page, limit, sort };
 
-  return { conditions, projection, options };
+  return { filter: query, projection, options };
 };

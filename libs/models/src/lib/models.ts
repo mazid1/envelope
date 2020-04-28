@@ -18,7 +18,7 @@ export class PagedResponse<T> {
 }
 
 export class QueryModel {
-  conditions: any;
+  filter: any;
   projection: string | string[];
-  options: { page: number; limit: number };
+  options: { page: number; limit: number; sort: string };
 }
