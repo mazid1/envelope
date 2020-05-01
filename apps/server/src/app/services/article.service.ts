@@ -75,7 +75,7 @@ export const createArticle = async newArticle => {
  * @param query query from string from client
  */
 const formatQuery = (query: any): QueryModel => {
-  let projection = 'title summary tags slug'; // default fields for list of articles
+  let projection = 'title summary tags slug publishedAt'; // default fields for list of articles
   if (query.hasOwnProperty(QueryParam.FIELDS)) {
     projection = query[QueryParam.FIELDS];
     delete query[QueryParam.FIELDS];

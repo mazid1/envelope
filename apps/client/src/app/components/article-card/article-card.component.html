@@ -1,14 +1,16 @@
-<mat-card>
-  <mat-card-header [routerLink]="'/article/' + article.slug">
-    <mat-card-title>{{ article.title }}</mat-card-title>
-    <mat-card-subtitle>{{ article.publishedAt | date: 'dd-MM-yyy' }}</mat-card-subtitle>
-  </mat-card-header>
+<mat-card class="article-card">
+  <button mat-button class="router-link-card-header" [routerLink]="'/article/' + article.slug">
+    <mat-card-title class="article-card-title">{{ article.title }}</mat-card-title>
+    <mat-card-subtitle class="article-card-subtitle">{{
+      article.publishedAt | date: 'dd-MM-yyy'
+    }}</mat-card-subtitle>
+  </button>
   <mat-divider></mat-divider>
   <mat-card-content class="card-content">
     <p>{{ article.summary }}</p>
   </mat-card-content>
   <mat-divider></mat-divider>
-  <mat-card-actions>
+  <mat-card-actions class="article-card-actions">
     <button *ngFor="let tag of article.tags" mat-button color="accent" (click)="onClick(tag)">
       {{ tag }}
     </button>
