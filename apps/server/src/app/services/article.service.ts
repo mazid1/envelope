@@ -38,14 +38,20 @@ export const getArticles = async (query): Promise<PagedResponse<any>> => {
 
 /**
  * Returns all fields of the matched Article
- * @param id: id of the Article
+ * @param slug: unique url of the Article
  */
-export const getArticleById = async id => {
+export const getArticleBySlug = async slug => {
   try {
-    const article = await Article.findById(id);
+    const article = await Article.findOne({ slug });
+    if (!article) {
+      throw Error('404');
+    }
     return article;
   } catch (e) {
     console.log(e.message);
+    if (e.message === '404') {
+      throw Error(e.message);
+    }
     throw Error('Error while fetching Article');
   }
 };
@@ -69,7 +75,7 @@ export const createArticle = async newArticle => {
  * @param query query from string from client
  */
 const formatQuery = (query: any): QueryModel => {
-  let projection = 'title summary tags'; // default fields for list of articles
+  let projection = 'title summary tags slug'; // default fields for list of articles
   if (query.hasOwnProperty(QueryParam.FIELDS)) {
     projection = query[QueryParam.FIELDS];
     delete query[QueryParam.FIELDS];

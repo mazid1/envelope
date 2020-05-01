@@ -19,7 +19,7 @@ export class ArticleFormComponent implements OnInit, AfterViewInit, OnDestroy {
   formMb = ArticleFormMembers;
   articleForm: FormGroup;
 
-  id: string;
+  slug: string;
 
   protected tags = [
     'angular',
@@ -48,9 +48,9 @@ export class ArticleFormComponent implements OnInit, AfterViewInit, OnDestroy {
     let article = new Article();
     this.articleForm = article.buildFormGroup();
 
-    this.id = this.route.snapshot.params.id;
-    if (this.id) {
-      this.articleService.getArticleById(this.id).subscribe((res: Article) => {
+    this.slug = this.route.snapshot.params.slug;
+    if (this.slug) {
+      this.articleService.getArticleBySlug(this.slug).subscribe((res: Article) => {
         article = new Article(res);
         this.articleForm = article.buildFormGroup();
       });

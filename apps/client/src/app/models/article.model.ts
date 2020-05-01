@@ -5,6 +5,7 @@ import { FormInterface } from './form.interface';
 
 export class Article extends BaseModel implements FormInterface {
   title: string;
+  slug: string;
   content: [];
   summary: string;
   published: boolean;
@@ -19,6 +20,7 @@ export class Article extends BaseModel implements FormInterface {
     }
 
     this.title = data.title;
+    this.slug = data.slug;
     this.content = data.content;
     this.summary = data.summary;
     this.published = data.published;

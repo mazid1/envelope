@@ -22,8 +22,8 @@ export class ArticleService {
     return this.httpClient.get<PagedResponse<Article>>(`${this.articleBaseUrl}`, { params });
   }
 
-  getArticleById(id: string): Observable<Article> {
-    return this.httpClient.get<Article>(`${this.articleBaseUrl}/${id}`);
+  getArticleBySlug(slug: string): Observable<Article> {
+    return this.httpClient.get<Article>(`${this.articleBaseUrl}/${slug}`);
   }
 
   saveArticle(article: any): Observable<Article> {

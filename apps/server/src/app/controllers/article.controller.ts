@@ -12,13 +12,16 @@ export const getArticles = async (req, res) => {
   }
 };
 
-export const getArticleById = async (req, res) => {
+export const getArticleBySlug = async (req, res) => {
   // todo: validation
   try {
-    const article = await ArticleService.getArticleById(req.params.id);
+    const article = await ArticleService.getArticleBySlug(req.params.slug);
     return res.status(200).send(article);
   } catch (e) {
-    res.status(400).send(null);
+    if (e.message === '404') {
+      res.status(404).send({ error: true, status: 404, message: 'Not Found' });
+    }
+    res.status(400).send({ error: true, status: 400, message: 'Bad Request' });
   }
 };
 
@@ -40,6 +43,6 @@ export const createArticle = async (req, res) => {
     const article = await ArticleService.createArticle(newArticle);
     return res.status(201).send(article);
   } catch (e) {
-    res.status(400).send(null);
+    res.status(400).send({ error: true, status: 400, message: 'Bad Request' });
   }
 };

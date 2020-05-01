@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-card-header>
+  <mat-card-header [routerLink]="'/article/' + article.slug">
     <mat-card-title>{{ article.title }}</mat-card-title>
     <mat-card-subtitle>{{ article.publishedAt | date: 'dd-MM-yyy' }}</mat-card-subtitle>
   </mat-card-header>
