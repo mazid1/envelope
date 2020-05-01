@@ -19,6 +19,6 @@ export class CategoryListComponent implements OnInit {
   }
 
   onClick(category: string) {
-    this.router.navigate(['/'], { queryParams: { tags: category, fields: 'title summary tags' } });
+    this.router.navigate(['/'], { queryParams: { tags: category } });
   }
 }

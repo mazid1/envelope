@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Params } from '@angular/router';
 import { ApiConstant } from '@envelope/constants';
+import { PagedResponse } from '@envelope/models';
 
 import { environment } from '../../environments/environment';
 import { Article } from '../models/article.model';
@@ -17,15 +18,15 @@ export class ArticleService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getArticles(params?: Params): Observable<Article> {
-    return this.httpClient.get<Article>(`${this.articleBaseUrl}`, { params });
+  getArticles(params?: Params): Observable<PagedResponse<Article>> {
+    return this.httpClient.get<PagedResponse<Article>>(`${this.articleBaseUrl}`, { params });
   }
 
-  getArticleById(id: string): Observable<any> {
-    return this.httpClient.get<Article>(`${this.articleBaseUrl}/${id}`);
+  getArticleBySlug(slug: string): Observable<Article> {
+    return this.httpClient.get<Article>(`${this.articleBaseUrl}/${slug}`);
   }
 
-  saveArticle(article: any): Observable<any> {
+  saveArticle(article: any): Observable<Article> {
     return this.httpClient.post<Article>(`${this.articleBaseUrl}`, article);
   }
 }

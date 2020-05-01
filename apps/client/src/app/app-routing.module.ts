@@ -12,8 +12,8 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'about', component: AboutMeComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'article/:id', component: ArticleDetailComponent },
-  { path: 'edit-article/:id', component: ArticleFormComponent },
+  { path: 'article/:slug', component: ArticleDetailComponent },
+  { path: 'edit-article/:slug', component: ArticleFormComponent },
   { path: 'edit-article', component: ArticleFormComponent },
   { path: '', component: HomeComponent }
 ];

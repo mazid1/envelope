@@ -1,10 +1,15 @@
 import * as mongoose from 'mongoose';
 
-const articleSchema = new mongoose.Schema(
+const slug = require('mongoose-slug-updater');
+
+mongoose.plugin(slug);
+const Schema = mongoose.Schema;
+const articleSchema = new Schema(
   {
     title: {
       type: String,
-      required: true
+      required: true,
+      unique: true
     },
     content: {
       type: Array,
@@ -21,7 +26,8 @@ const articleSchema = new mongoose.Schema(
     publishedAt: {
       type: Date
     },
-    tags: [{ type: String }]
+    tags: [{ type: String }],
+    slug: { type: String, slug: 'title', unique: true }
   },
   {
     timestamps: {},

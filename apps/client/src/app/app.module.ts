@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MAT_LABEL_GLOBAL_OPTIONS } from '@angular/material/core';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -50,9 +50,7 @@ import { TextEditorComponent } from './components/text-editor/text-editor.compon
     AppMaterialModule,
     AppRoutingModule
   ],
-  providers: [
-    { provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: 'auto' } }
-  ],
+  providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { float: 'auto' } }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

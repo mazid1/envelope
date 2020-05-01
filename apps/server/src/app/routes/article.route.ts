@@ -5,7 +5,7 @@ import * as ArticleController from '../controllers/article.controller';
 const router = express.Router();
 
 router.get('/', ArticleController.getArticles);
-router.get('/:id', ArticleController.getArticleById);
+router.get('/:slug', ArticleController.getArticleBySlug);
 
 router.post('/', ArticleController.createArticle);
 

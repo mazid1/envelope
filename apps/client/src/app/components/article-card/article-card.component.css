@@ -1,8 +1,27 @@
-.post-card {
-    background: whitesmoke;
-    color: black;
-    margin-bottom: 10px;
+.article-card {
+  padding: 0;
 }
-.post-card-subtitle {
-    color: rgb(128, 128, 128);
+
+.card-content {
+  margin: 0;
+  padding: 1em;
+}
+
+.router-link-card-header {
+  width: 100%;
+  text-align: left;
+  padding: 0.25em 1em 0.25em 1em;
+}
+
+.article-card-title {
+  margin: 0;
+}
+
+.article-card-subtitle {
+  margin: 0;
+}
+
+.article-card-actions {
+  margin: 0 !important;
+  padding: 0.25em 0em !important;
 }

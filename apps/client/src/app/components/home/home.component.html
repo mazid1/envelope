@@ -1,5 +1,14 @@
 <div class="home-container">
-  <app-article-card></app-article-card>
-  <app-article-card></app-article-card>
-  <app-article-card></app-article-card>
+  <mat-paginator
+    class="card-paginator"
+    [length]="pagedArticles.totalCount"
+    [pageSize]="pagedArticles.pageSize"
+    [pageIndex]="pagedArticles.pageIndex"
+    [hidePageSize]="true"
+    (page)="onPageEvent($event)"
+  ></mat-paginator>
+  <app-article-card
+    *ngFor="let article of pagedArticles.results"
+    [article]="article"
+  ></app-article-card>
 </div>

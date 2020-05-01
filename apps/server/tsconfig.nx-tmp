@@ -8,6 +8,9 @@
     "paths": {
       "@envelope/constants": [
         "libs/constants/src/index.ts"
+      ],
+      "@envelope/models": [
+        "libs/models/src/index.ts"
       ]
     }
   },
