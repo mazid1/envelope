@@ -7,10 +7,11 @@
   padding: 1em;
 }
 
-.router-link-card-header {
+.article-card-header {
   width: 100%;
   text-align: left;
   padding: 0.25em 1em 0.25em 1em;
+  white-space: normal;
 }
 
 .article-card-title {

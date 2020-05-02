@@ -1,0 +1,15 @@
+:host {
+  width: 100%;
+}
+
+.category-container {
+  padding: 10px;
+}
+
+.cat-list-label {
+  margin: 0;
+}
+
+.cat-action-list {
+  padding-top: 0 !important;
+}

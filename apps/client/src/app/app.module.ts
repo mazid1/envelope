@@ -1,3 +1,6 @@
+import {
+    PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule
+} from 'ngx-perfect-scrollbar';
 import { QuillModule } from 'ngx-quill';
 
 import { CommonModule } from '@angular/common';
@@ -23,6 +26,10 @@ import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { TextEditorComponent } from './components/text-editor/text-editor.component';
 
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: false
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,11 +53,18 @@ import { TextEditorComponent } from './components/text-editor/text-editor.compon
 
     FontAwesomeModule,
     QuillModule.forRoot(),
+    PerfectScrollbarModule,
 
     AppMaterialModule,
     AppRoutingModule
   ],
-  providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { float: 'auto' } }],
+  providers: [
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { float: 'auto' } },
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
