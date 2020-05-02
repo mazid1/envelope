@@ -1,5 +1,6 @@
-<div class="home-container">
+<div fxLayout="column" fxFlex class="home-container">
   <mat-paginator
+    fxFlex="10"
     class="card-paginator"
     [length]="pagedArticles.totalCount"
     [pageSize]="pagedArticles.pageSize"
@@ -7,8 +8,12 @@
     [hidePageSize]="true"
     (page)="onPageEvent($event)"
   ></mat-paginator>
-  <app-article-card
-    *ngFor="let article of pagedArticles.results"
-    [article]="article"
-  ></app-article-card>
+  <div class="ps envelope-ps" perfectScrollbar>
+    <app-article-card
+      *ngFor="let article of pagedArticles.results; let last = last"
+      [article]="article"
+      [cssClass]="{ 'mb-10': !last }"
+    ></app-article-card>
+    <div></div>
+  </div>
 </div>

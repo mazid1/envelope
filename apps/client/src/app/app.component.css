@@ -27,7 +27,7 @@
 
 .r-sidebar {
   background: slategray;
-  padding: 10px;
+  display: flex;
 }
 
 .social-icon-container {

@@ -10,6 +10,7 @@ import { Article } from '../../models/article.model';
 })
 export class ArticleCardComponent implements OnInit {
   @Input() article: Article;
+  @Input() cssClass: any;
 
   constructor(private router: Router) {}
 

@@ -1,5 +1,5 @@
-<mat-card class="article-card">
-  <button mat-button class="router-link-card-header" [routerLink]="'/article/' + article.slug">
+<mat-card class="article-card" [ngClass]="cssClass">
+  <button mat-button class="article-card-header" [routerLink]="'/article/' + article.slug">
     <mat-card-title class="article-card-title">{{ article.title }}</mat-card-title>
     <mat-card-subtitle class="article-card-subtitle">{{
       article.publishedAt | date: 'dd-MM-yyy'
