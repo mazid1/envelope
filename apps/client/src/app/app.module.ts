@@ -2,6 +2,7 @@ import {
     PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule
 } from 'ngx-perfect-scrollbar';
 import { QuillModule } from 'ngx-quill';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -54,6 +55,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FontAwesomeModule,
     QuillModule.forRoot(),
     PerfectScrollbarModule,
+    NgxSpinnerModule,
 
     AppMaterialModule,
     AppRoutingModule
