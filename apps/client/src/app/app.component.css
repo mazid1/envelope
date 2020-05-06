@@ -9,6 +9,7 @@
 .sidenav-item-container {
   background: #273747;
   color: azure;
+  width: 210px;
 }
 
 .mat-nav-list .mat-list-item.active {
@@ -30,12 +31,6 @@
 .r-sidebar {
   background: slategray;
   display: flex;
-}
-
-.social-icon-container {
-  width: 100%;
-  text-align: center;
-  overflow: auto;
 }
 
 fa-icon {

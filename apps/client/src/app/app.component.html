@@ -1,12 +1,5 @@
-<mat-sidenav-container class="sidenav-container" fxLayout="row">
-  <mat-sidenav
-    class="sidenav-item-container"
-    #sidenav
-    mode="side"
-    [(opened)]="opened"
-    fxFlex="18"
-    fxFlex.lt-sm="100"
-  >
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav-item-container" #sidenav mode="side" [(opened)]="opened">
     <div class="avatar" routerLink="/" tabindex="-1">
       <img src="../assets/mzd2.jpg" alt="Avatar" />
     </div>
@@ -23,23 +16,23 @@
       <mat-list-item routerLink="/contact" routerLinkActive="active">Contact</mat-list-item>
     </mat-nav-list>
 
-    <mat-nav-list class="social-icon-container" fxLayout="row" fxLayoutAlign="center">
-      <a mat-list-item href="https://linkedin.com" target="_blank">
+    <div fxLayout="row wrap" fxLayoutAlign="center">
+      <a mat-icon-button href="https://linkedin.com" target="_blank">
         <fa-icon [icon]="faLinkedinIn"></fa-icon>
       </a>
-      <a mat-list-item href="https://github.com" target="_blank">
+      <a mat-icon-button href="https://github.com" target="_blank">
         <fa-icon [icon]="faGithub"></fa-icon>
       </a>
-      <a mat-list-item href="https://youtube.com" target="_blank">
+      <a mat-icon-button href="https://youtube.com" target="_blank">
         <fa-icon [icon]="faYoutube"></fa-icon>
       </a>
-      <a mat-list-item href="https://twitter.com" target="_blank">
+      <a mat-icon-button href="https://twitter.com" target="_blank">
         <fa-icon [icon]="faTwitter"></fa-icon>
       </a>
-      <a mat-list-item href="https://facebook.com" target="_blank">
+      <a mat-icon-button href="https://facebook.com" target="_blank">
         <fa-icon [icon]="faFacebook"></fa-icon>
       </a>
-    </mat-nav-list>
+    </div>
   </mat-sidenav>
 
   <mat-sidenav-content>
