@@ -1,12 +1,14 @@
-.nav {
-  height: 100%;
-  background: #273747;
-  color: azure;
-  padding: 10px;
+.sidenav-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.sidenav {
-  outline: 0;
+.sidenav-item-container {
+  background: #273747;
+  color: azure;
 }
 
 .mat-nav-list .mat-list-item.active {

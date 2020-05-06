@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import {
-  faFacebook,
-  faYoutube,
-  faLinkedinIn,
-  faGithub,
-  faTwitter
+    faFacebook, faGithub, faLinkedinIn, faTwitter, faYoutube
 } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
@@ -14,6 +10,7 @@ import {
 })
 export class AppComponent {
   title = 'envelope-client';
+  opened = true;
 
   faFacebook = faFacebook;
   faYoutube = faYoutube;
