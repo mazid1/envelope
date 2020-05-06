@@ -10,7 +10,8 @@ import {
 })
 export class AppComponent {
   title = 'envelope-client';
-  opened = true;
+  leftSideNavOpened = true;
+  rightSideNavOpened = true;
 
   faFacebook = faFacebook;
   faYoutube = faYoutube;

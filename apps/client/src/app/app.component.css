@@ -28,9 +28,10 @@
   padding: 10px;
 }
 
-.r-sidebar {
+.r-sidenav {
   background: slategray;
   display: flex;
+  width: 180px;
 }
 
 fa-icon {

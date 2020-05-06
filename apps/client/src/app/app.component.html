@@ -1,5 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav class="sidenav-item-container" #sidenav mode="side" [(opened)]="opened">
+  <mat-sidenav class="sidenav-item-container" #sidenav mode="side" [(opened)]="leftSideNavOpened">
     <div class="avatar" routerLink="/" tabindex="-1">
       <img src="../assets/mzd2.jpg" alt="Avatar" />
     </div>
@@ -35,15 +35,15 @@
     </div>
   </mat-sidenav>
 
+  <mat-sidenav class="r-sidenav" mode="side" [(opened)]="rightSideNavOpened" position="end">
+    <app-category-list></app-category-list>
+  </mat-sidenav>
+
   <mat-sidenav-content>
     <!-- <button mat-button (click)="sidenav.toggle()">nav</button> -->
     <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between" fxFlexFill>
-      <div fxFlex="80" class="main-container">
+      <div fxFlex="100" class="main-container">
         <router-outlet></router-outlet>
-      </div>
-
-      <div fxFlex="20" class="r-sidebar">
-        <app-category-list></app-category-list>
       </div>
     </div>
   </mat-sidenav-content>
