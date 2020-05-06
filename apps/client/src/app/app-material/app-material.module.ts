@@ -11,6 +11,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   exports: [
@@ -24,6 +25,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatSelectModule,
     MatDividerModule,
     MatPaginatorModule,
+    MatToolbarModule,
     NgxMatSelectSearchModule
   ]
 })

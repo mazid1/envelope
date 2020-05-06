@@ -39,13 +39,8 @@
     <app-category-list></app-category-list>
   </mat-sidenav>
 
-  <mat-sidenav-content>
-    <!-- <button mat-button (click)="sidenav.toggle()">nav</button> -->
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between" fxFlexFill>
-      <div fxFlex="100" class="main-container">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
+  <mat-sidenav-content role="main">
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 
