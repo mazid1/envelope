@@ -1,3 +1,20 @@
+<!-- <mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="toggleLeftSidenav()">
+      <i class="fa fa-bars"></i>
+    </button>
+    <span>My App</span>
+  </mat-toolbar-row>
+</mat-toolbar> -->
+<mat-toolbar>
+  <div fxShow="true" fxHide.gt-sm="true">
+    <a mat-icon-button href="#" (click)="sidenav.toggle()">
+      <fa-icon [icon]="faBars"></fa-icon>
+    </a>
+  </div>
+  <span>{{ title }}</span>
+</mat-toolbar>
+
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav class="sidenav-item-container" #sidenav mode="side" [(opened)]="leftSideNavOpened">
     <div class="avatar" routerLink="/" tabindex="-1">
@@ -5,12 +22,9 @@
     </div>
 
     <mat-nav-list fxLayout="column">
-      <mat-list-item
-        routerLink="/"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        >Home</mat-list-item
-      >
+      <mat-list-item routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        Home
+      </mat-list-item>
       <mat-list-item routerLink="/blog" routerLinkActive="active">Blog</mat-list-item>
       <mat-list-item routerLink="/about" routerLinkActive="active">About me</mat-list-item>
       <mat-list-item routerLink="/contact" routerLinkActive="active">Contact</mat-list-item>

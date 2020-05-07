@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {
     faFacebook, faGithub, faLinkedinIn, faTwitter, faYoutube
 } from '@fortawesome/free-brands-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'envelope-client';
+  title = 'Envelope';
   leftSideNavOpened = true;
   rightSideNavOpened = true;
 
@@ -18,4 +19,9 @@ export class AppComponent {
   faLinkedinIn = faLinkedinIn;
   faGithub = faGithub;
   faTwitter = faTwitter;
+  faBars = faBars;
+
+  toggleLeftSidenav() {
+    this.leftSideNavOpened = !this.leftSideNavOpened;
+  }
 }
