@@ -37,6 +37,7 @@ export class AppComponent implements OnDestroy {
     ]).subscribe((result: BreakpointState) => {
       if (result.matches) {
         console.log(result, 'gt-sm');
+        this.leftSideNavOpened = true;
       }
     });
 
@@ -45,6 +46,7 @@ export class AppComponent implements OnDestroy {
     ]).subscribe((result: BreakpointState) => {
       if (result.matches) {
         console.log(result, 'sm');
+        this.leftSideNavOpened = false;
       }
     });
 
@@ -53,6 +55,7 @@ export class AppComponent implements OnDestroy {
     ]).subscribe((result: BreakpointState) => {
       if (result.matches) {
         console.log(result, 'xs');
+        this.leftSideNavOpened = false;
       }
     });
   }

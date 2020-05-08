@@ -1,9 +1,17 @@
 .sidenav-container {
   position: absolute;
-  top: 64px;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.sidenav-container.sidenav-container-sm {
+  top: 64px;
+}
+
+.sidenav-container.sidenav-container-xs {
+  top: 56px;
 }
 
 .sidenav-item-container {

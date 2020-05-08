@@ -1,21 +1,12 @@
-<!-- <mat-toolbar>
-  <mat-toolbar-row>
-    <button mat-icon-button (click)="toggleLeftSidenav()">
-      <i class="fa fa-bars"></i>
-    </button>
-    <span>My App</span>
-  </mat-toolbar-row>
-</mat-toolbar> -->
-<mat-toolbar>
-  <div fxShow="true" fxHide.gt-sm="true">
-    <a mat-icon-button href="#" (click)="sidenav.toggle()">
-      <fa-icon [icon]="faBars"></fa-icon>
-    </a>
-  </div>
+<mat-toolbar fxHide.gt-sm="true">
+  <a mat-icon-button href="#" (click)="sidenav.toggle()">
+    <fa-icon [icon]="faBars"></fa-icon>
+  </a>
   <span>{{ title }}</span>
 </mat-toolbar>
 
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" ngClass.sm="sidenav-container-sm" ngClass.xs="sidenav-container-xs">
+
   <mat-sidenav class="sidenav-item-container" #sidenav mode="side" [(opened)]="leftSideNavOpened">
     <div class="avatar" routerLink="/" tabindex="-1">
       <img src="../assets/mzd2.jpg" alt="Avatar" />
@@ -56,13 +47,9 @@
   <mat-sidenav-content role="main">
     <router-outlet></router-outlet>
   </mat-sidenav-content>
+
 </mat-sidenav-container>
 
-<ngx-spinner
-  bdColor="rgba(0, 0, 0, 0.8)"
-  size="medium"
-  color="#fff"
-  type="ball-spin-clockwise-fade"
-  [fullScreen]="true"
->
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-spin-clockwise-fade"
+  [fullScreen]="true">
 </ngx-spinner>
