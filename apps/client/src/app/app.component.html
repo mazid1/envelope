@@ -1,55 +1,62 @@
-<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between" fxFlexFill>
-  <div fxFlex="20" fxFlex.xs="60" class="nav">
-    <mat-sidenav class="sidenav" opened>
-      <div class="avatar" routerLink="/" tabindex="-1">
-        <img src="../assets/mzd2.jpg" alt="Avatar" />
-      </div>
+<mat-toolbar fxHide.gt-sm="true">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <fa-icon [icon]="faBars"></fa-icon>
+  </button>
 
-      <mat-nav-list class="nav-item-container" fxLayout="column">
-        <mat-list-item
-          routerLink="/"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          >Home</mat-list-item
-        >
-        <mat-list-item routerLink="/blog" routerLinkActive="active">Blog</mat-list-item>
-        <mat-list-item routerLink="/about" routerLinkActive="active">About me</mat-list-item>
-        <mat-list-item routerLink="/contact" routerLinkActive="active">Contact</mat-list-item>
-      </mat-nav-list>
+  <span style="padding-left: 10px;">{{ title }}</span>
+  
+  <span style="width: 100%;"></span>
+  
+  <button mat-icon-button (click)="rightSidenav.toggle()">
+    <fa-icon [icon]="faFilter"></fa-icon>
+  </button>
+</mat-toolbar>
 
-      <mat-nav-list class="social-icon-container" fxLayout="row" fxLayoutAlign="center">
-        <a mat-list-item href="https://linkedin.com" target="_blank">
-          <fa-icon [icon]="faLinkedinIn"></fa-icon>
-        </a>
-        <a mat-list-item href="https://github.com" target="_blank">
-          <fa-icon [icon]="faGithub"></fa-icon>
-        </a>
-        <a mat-list-item href="https://youtube.com" target="_blank">
-          <fa-icon [icon]="faYoutube"></fa-icon>
-        </a>
-        <a mat-list-item href="https://twitter.com" target="_blank">
-          <fa-icon [icon]="faTwitter"></fa-icon>
-        </a>
-        <a mat-list-item href="https://facebook.com" target="_blank">
-          <fa-icon [icon]="faFacebook"></fa-icon>
-        </a>
-      </mat-nav-list>
-    </mat-sidenav>
-  </div>
+<mat-sidenav-container class="sidenav-container" ngClass.sm="sidenav-container-sm" ngClass.xs="sidenav-container-xs">
 
-  <div fxFlex="60" class="main-container">
-    <router-outlet></router-outlet>
-  </div>
+  <mat-sidenav class="sidenav-item-container" #sidenav [mode]="sidenavMode" [(opened)]="leftSideNavOpened">
+    <div class="avatar" routerLink="/" tabindex="-1">
+      <img src="../assets/mzd2.jpg" alt="Avatar" />
+    </div>
 
-  <div fxFlex="20" class="r-sidebar">
+    <mat-nav-list fxLayout="column">
+      <mat-list-item routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        Home
+      </mat-list-item>
+      <mat-list-item routerLink="/blog" routerLinkActive="active">Blog</mat-list-item>
+      <mat-list-item routerLink="/about" routerLinkActive="active">About me</mat-list-item>
+      <mat-list-item routerLink="/contact" routerLinkActive="active">Contact</mat-list-item>
+    </mat-nav-list>
+
+    <div fxLayout="row wrap" fxLayoutAlign="center">
+      <a mat-icon-button href="https://linkedin.com" target="_blank">
+        <fa-icon [icon]="faLinkedinIn"></fa-icon>
+      </a>
+      <a mat-icon-button href="https://github.com" target="_blank">
+        <fa-icon [icon]="faGithub"></fa-icon>
+      </a>
+      <a mat-icon-button href="https://youtube.com" target="_blank">
+        <fa-icon [icon]="faYoutube"></fa-icon>
+      </a>
+      <a mat-icon-button href="https://twitter.com" target="_blank">
+        <fa-icon [icon]="faTwitter"></fa-icon>
+      </a>
+      <a mat-icon-button href="https://facebook.com" target="_blank">
+        <fa-icon [icon]="faFacebook"></fa-icon>
+      </a>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav class="r-sidenav" [mode]="sidenavMode" #rightSidenav [(opened)]="rightSideNavOpened" position="end">
     <app-category-list></app-category-list>
-  </div>
-</div>
-<ngx-spinner
-  bdColor="rgba(0, 0, 0, 0.8)"
-  size="medium"
-  color="#fff"
-  type="ball-spin-clockwise-fade"
-  [fullScreen]="true"
->
+  </mat-sidenav>
+
+  <mat-sidenav-content role="main">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-spin-clockwise-fade"
+  [fullScreen]="true">
 </ngx-spinner>

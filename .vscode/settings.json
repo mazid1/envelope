@@ -1,4 +1,6 @@
 {
   "prettier.configPath": ".prettierrc",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 120
 }
