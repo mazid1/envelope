@@ -1,20 +1,20 @@
 <mat-toolbar fxHide.gt-sm="true">
-  <a mat-icon-button href="#" (click)="sidenav.toggle()">
+  <button mat-icon-button (click)="sidenav.toggle()">
     <fa-icon [icon]="faBars"></fa-icon>
-  </a>
+  </button>
 
   <span style="padding-left: 10px;">{{ title }}</span>
   
   <span style="width: 100%;"></span>
   
-  <a mat-icon-button href="#" (click)="rightSidenav.toggle()">
+  <button mat-icon-button (click)="rightSidenav.toggle()">
     <fa-icon [icon]="faFilter"></fa-icon>
-  </a>
+  </button>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container" ngClass.sm="sidenav-container-sm" ngClass.xs="sidenav-container-xs">
 
-  <mat-sidenav class="sidenav-item-container" #sidenav mode="side" [(opened)]="leftSideNavOpened">
+  <mat-sidenav class="sidenav-item-container" #sidenav [mode]="sidenavMode" [(opened)]="leftSideNavOpened">
     <div class="avatar" routerLink="/" tabindex="-1">
       <img src="../assets/mzd2.jpg" alt="Avatar" />
     </div>
@@ -47,7 +47,7 @@
     </div>
   </mat-sidenav>
 
-  <mat-sidenav class="r-sidenav" mode="side" #rightSidenav [(opened)]="rightSideNavOpened" position="end">
+  <mat-sidenav class="r-sidenav" [mode]="sidenavMode" #rightSidenav [(opened)]="rightSideNavOpened" position="end">
     <app-category-list></app-category-list>
   </mat-sidenav>
 

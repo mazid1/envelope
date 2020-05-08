@@ -14,8 +14,6 @@ import { faBars, faFilter } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent implements OnDestroy {
   title = 'Envelope';
-  leftSideNavOpened = true;
-  rightSideNavOpened = true;
 
   faFacebook = faFacebook;
   faYoutube = faYoutube;
@@ -25,6 +23,9 @@ export class AppComponent implements OnDestroy {
   faBars = faBars;
   faFilter = faFilter;
 
+  leftSideNavOpened = true;
+  rightSideNavOpened = true;
+  sidenavMode = 'side';
   gtSmSub: Subscription;
   ltMdSub: Subscription;
 
@@ -39,6 +40,7 @@ export class AppComponent implements OnDestroy {
         console.log(result, 'gt-sm');
         this.leftSideNavOpened = true;
         this.rightSideNavOpened = true;
+        this.sidenavMode = 'side';
       }
     });
 
@@ -50,6 +52,7 @@ export class AppComponent implements OnDestroy {
         console.log(result, 'lt-md');
         this.leftSideNavOpened = false;
         this.rightSideNavOpened = false;
+        this.sidenavMode = 'over';
       }
     });
   }
