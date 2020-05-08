@@ -65,6 +65,4 @@ export class AppComponent implements OnDestroy {
   toggleLeftSidenav() {
     this.leftSideNavOpened = !this.leftSideNavOpened;
   }
-
-  loadMobileContent() { }
 }
