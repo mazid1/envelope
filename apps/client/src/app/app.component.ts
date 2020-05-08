@@ -5,7 +5,7 @@ import { Component, OnDestroy } from '@angular/core';
 import {
     faFacebook, faGithub, faLinkedinIn, faTwitter, faYoutube
 } from '@fortawesome/free-brands-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faFilter } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -23,10 +23,10 @@ export class AppComponent implements OnDestroy {
   faGithub = faGithub;
   faTwitter = faTwitter;
   faBars = faBars;
+  faFilter = faFilter;
 
   gtSmSub: Subscription;
-  smSub: Subscription;
-  xsSub: Subscription;
+  ltMdSub: Subscription;
 
   constructor(breakpointObserver: BreakpointObserver) {
 
@@ -38,32 +38,25 @@ export class AppComponent implements OnDestroy {
       if (result.matches) {
         console.log(result, 'gt-sm');
         this.leftSideNavOpened = true;
+        this.rightSideNavOpened = true;
       }
     });
 
-    this.smSub = breakpointObserver.observe([
-      Breakpoints.Small
-    ]).subscribe((result: BreakpointState) => {
-      if (result.matches) {
-        console.log(result, 'sm');
-        this.leftSideNavOpened = false;
-      }
-    });
-
-    this.xsSub = breakpointObserver.observe([
+    this.ltMdSub = breakpointObserver.observe([
+      Breakpoints.Small,
       Breakpoints.XSmall
     ]).subscribe((result: BreakpointState) => {
       if (result.matches) {
-        console.log(result, 'xs');
+        console.log(result, 'lt-md');
         this.leftSideNavOpened = false;
+        this.rightSideNavOpened = false;
       }
     });
   }
 
   ngOnDestroy() {
     this.gtSmSub.unsubscribe();
-    this.smSub.unsubscribe();
-    this.xsSub.unsubscribe();
+    this.ltMdSub.unsubscribe();
   }
 
   toggleLeftSidenav() {

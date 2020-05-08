@@ -2,7 +2,14 @@
   <a mat-icon-button href="#" (click)="sidenav.toggle()">
     <fa-icon [icon]="faBars"></fa-icon>
   </a>
-  <span>{{ title }}</span>
+
+  <span style="padding-left: 10px;">{{ title }}</span>
+  
+  <span style="width: 100%;"></span>
+  
+  <a mat-icon-button href="#" (click)="rightSidenav.toggle()">
+    <fa-icon [icon]="faFilter"></fa-icon>
+  </a>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container" ngClass.sm="sidenav-container-sm" ngClass.xs="sidenav-container-xs">
@@ -40,7 +47,7 @@
     </div>
   </mat-sidenav>
 
-  <mat-sidenav class="r-sidenav" mode="side" [(opened)]="rightSideNavOpened" position="end">
+  <mat-sidenav class="r-sidenav" mode="side" #rightSidenav [(opened)]="rightSideNavOpened" position="end">
     <app-category-list></app-category-list>
   </mat-sidenav>
 
