@@ -8,4 +8,18 @@
 
 .card-paginator {
   margin-bottom: 10px;
+  min-height: 25px;
+}
+
+::ng-deep.mat-paginator .mat-paginator-outer-container {
+  max-height: 100%;
+}
+
+::ng-deep.mat-paginator .mat-paginator-container {
+  min-height: 0;
+  max-height: 100%;
+}
+
+::ng-deep.mat-paginator .mat-paginator-range-actions {
+  max-height: 100%;
 }
