@@ -9,7 +9,7 @@ import { ArticleService } from '../../services/article.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   pagedArticles: PagedResponse<Article> = new PagedResponse<Article>();
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private activatedRoute: ActivatedRoute, private articleService: ArticleService) {}
+  constructor(private activatedRoute: ActivatedRoute, private articleService: ArticleService) { }
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {

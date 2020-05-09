@@ -6,15 +6,15 @@ import { Article } from '../../models/article.model';
 @Component({
   selector: 'app-article-card',
   templateUrl: './article-card.component.html',
-  styleUrls: ['./article-card.component.css']
+  styleUrls: ['./article-card.component.scss']
 })
 export class ArticleCardComponent implements OnInit {
   @Input() article: Article;
   @Input() cssClass: any;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   onClick(tag: string) {
     this.router.navigate(['/'], { queryParams: { tags: tag, fields: 'title summary tags' } });

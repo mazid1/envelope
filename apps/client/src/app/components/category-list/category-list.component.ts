@@ -7,12 +7,12 @@ import { CategoryService } from '../../services/category.service';
 @Component({
   selector: 'app-category-list',
   templateUrl: './category-list.component.html',
-  styleUrls: ['./category-list.component.css']
+  styleUrls: ['./category-list.component.scss']
 })
 export class CategoryListComponent implements OnInit {
   categories: Category[];
 
-  constructor(private router: Router, private categoryService: CategoryService) {}
+  constructor(private router: Router, private categoryService: CategoryService) { }
 
   ngOnInit() {
     this.categoryService.getCategories().subscribe(data => (this.categories = data));
