@@ -53,6 +53,7 @@
     "mongoose": "^5.9.7",
     "mongoose-slug-updater": "^3.2.1",
     "ngx-mat-select-search": "^2.1.2",
+    "ngx-mzd-timeline": "^1.0.1",
     "ngx-perfect-scrollbar": "^9.0.0",
     "ngx-quill": "^7.3.12",
     "ngx-spinner": "^9.0.2",
