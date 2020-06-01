@@ -4,9 +4,9 @@
   </button>
 
   <span style="padding-left: 10px;">{{ title }}</span>
-  
+
   <span style="width: 100%;"></span>
-  
+
   <button mat-icon-button (click)="rightSidenav.toggle()">
     <fa-icon [icon]="faFilter"></fa-icon>
   </button>
@@ -51,7 +51,7 @@
     <app-category-list></app-category-list>
   </mat-sidenav>
 
-  <mat-sidenav-content role="main">
+  <mat-sidenav-content role="main" class="ps envelope-ps" perfectScrollbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 

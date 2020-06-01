@@ -1,1 +1,25 @@
-<p>about-me works!</p>
+<section fxLayout="column" class="personal-info-container">
+  <h1>{{ personalInfo.name }}</h1>
+  <h3>{{ personalInfo.title }}</h3>
+</section>
+
+<mzd-timeline>
+  <mzd-timeline-content *ngFor="let data of timelineData" [card]="false">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title *ngIf="data.type==='position'">
+          {{data.title}} at <a [href]="data.company.website" target="_blank">{{data.company.name}}</a>
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{data.dates.start | date: 'MMM yyyy'}} -
+          {{data.dates.end ? (data.dates.end | date: 'MMM yyyy') : 'present'}}
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <ul *ngFor="let item of data.responsibilities">
+          {{item}}
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </mzd-timeline-content>
+</mzd-timeline>
