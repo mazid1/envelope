@@ -1,3 +1,8 @@
+<section fxLayout="column" class="personal-info-container">
+  <h1>{{ personalInfo.name }}</h1>
+  <h3>{{ personalInfo.title }}</h3>
+</section>
+
 <mzd-timeline>
   <mzd-timeline-content *ngFor="let data of timelineData" [card]="false">
     <mat-card>

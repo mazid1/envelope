@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutMeComponent implements OnInit {
 
+  personalInfo = {
+    name: 'Mohammad Mazedul Islam',
+    title: 'Software Engineer'
+  };
+
   timelineData = [
     {
       type: 'position',
