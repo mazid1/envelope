@@ -1,1 +1,39 @@
-<p>contact works!</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+<div class="container" style="width: 400px; margin-left: 24px; margin-top: 24px">
+  <div style="text-align:left">
+    <h1><b>Contact Me</b></h1>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Your name</mat-label>
+    <input matInput placeholder="John Doe" [formControl]="name" required minlength="1">
+    <mat-error *ngIf="name.invalid">{{getGeneralErrorMessage(name)}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Your email</mat-label>
+    <input matInput placeholder="johndoe@example.com" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Subject</mat-label>
+    <input matInput placeholder="A Personal Meeting" [formControl]="subject" required minlength="1">
+    <mat-error *ngIf="subject.invalid">{{getGeneralErrorMessage(subject)}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Message</mat-label>
+    <textarea style="height: 100px" matInput placeholder="Hello John Doe...." [formControl]="message"
+              required minlength="1"></textarea>
+    <mat-error *ngIf="message.invalid">{{getGeneralErrorMessage(message)}}</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="send()">send</mat-icon>
+    SEND
+  </button>
+
+</div>
