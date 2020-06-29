@@ -26,6 +26,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { TextEditorComponent } from './components/text-editor/text-editor.component';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: false
@@ -42,7 +43,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ContactComponent,
     ArticleCardComponent,
     CategoryListComponent,
-    ArticleFormComponent
+    ArticleFormComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
